@@ -245,3 +245,16 @@ Ainsi nous avons comme MLD
 7°/ **Installation de StofDoctrineExtensionsBundle**
     Installation de StofDoctrineExtensionsBundle
     ** - [*- https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/symfony2.md -*]
+
+
+
+/*****
+ *** Gestion du site de TEAM STL
+ *** @Author: Delrodie AMOIKON
+ *** @version: 1.1.*
+ *** @Date: Lundi 23 Janvier 2017
+ *****/
+
+1°/ **Gestion de la rubrique Presentation**
+    Creation des classes Presentation et ImgPresentation
+    ** - [*- php bin/console doctrine:genrate:entity AppBundle:Presentation/Imgpresentation -*]
