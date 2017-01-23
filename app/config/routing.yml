@@ -4,3 +4,8 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+admin:
+    path:     /admin
+    defaults: { _controller: "AppBundle:Default:admin" }
+    methods:  [GET, POST]
