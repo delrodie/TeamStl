@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Initiations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rubrique</th>
+                <th>Titre</th>
+                <th>Slug</th>
+                <th>Resume</th>
+                <th>Contenu</th>
+                <th>Tags</th>
+                <th>Publiepar</th>
+                <th>Modifiepar</th>
+                <th>Publiele</th>
+                <th>Modifiele</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for initiation in initiations %}
+            <tr>
+                <td><a href="{{ path('admin_initiation_show', { 'id': initiation.id }) }}">{{ initiation.id }}</a></td>
+                <td>{{ initiation.rubrique }}</td>
+                <td>{{ initiation.titre }}</td>
+                <td>{{ initiation.slug }}</td>
+                <td>{{ initiation.resume }}</td>
+                <td>{{ initiation.contenu }}</td>
+                <td>{{ initiation.tags }}</td>
+                <td>{{ initiation.publiePar }}</td>
+                <td>{{ initiation.modifiePar }}</td>
+                <td>{{ initiation.publieLe }}</td>
+                <td>{{ initiation.modifieLe }}</td>
+                <td>{% if initiation.statut %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_initiation_show', { 'id': initiation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_initiation_edit', { 'id': initiation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_initiation_new') }}">Create a new initiation</a>
+        </li>
+    </ul>
+{% endblock %}

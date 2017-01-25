@@ -1,0 +1,3 @@
+{% for initiation in initiations %}
+    <li><a href="{{ path('admin_initiation_show', { 'slug': initiation.slug }) }}">{{ initiation.rubrique|upper }}</a></li>
+{% endfor %}

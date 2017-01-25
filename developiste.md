@@ -280,3 +280,48 @@ Ainsi nous avons comme MLD
                 <li><a href="{{ path('admin_presentation_show', { 'slug': presentation.slug }) }}">{{ presentation.rubrique|upper }}</a></li>
             {% endfor %}
          -*]
+
+
+2°/ **Gestion de la rubrique initiation**
+    Creation des classes Initions et ImgInitiation
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Initiation/ImgInitiation -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD des classes ImgInitiation et Initiation
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:ImgInitiation -*]
+
+    Modification de la classe ImgInitiationType
+    ** - [*-
+            use Symfony\Component\Form\Extension\Core\Type\FileType;
+            ...
+            $builder
+                ->add('file', FileType::class, array(
+                    'label' => "Telecharger l'illustration",
+                    'required' => false,
+                ))
+                ;
+          -*]
+
+    Generation Crud de la classe Initiation
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Initiation -*]
+
+    Creation du menu de la classe Initiation
+    - Dans le layout
+    ** - [*- {{ render(url('menu_initiation')) }} -*]
+    - Modification du MenuController avec insertion de la classe InitiationController
+    - Creation de la route menu_initiation dans config/routing.yml
+    ** - [*-
+            menu_initiation:
+                path:     /menu/initiation
+                defaults: { _controller: "AppBundle:Menu:initiation" }
+                methods:  [GET, POST]
+          -*]
+    - Creation du template menu/initiation.html.twig
+    ** - [*-
+          {% for initiation in initiations %}
+              <li><a href="{{ path('admin_initiation_show', { 'slug': initiation.slug }) }}">{{ initiation.rubrique|upper }}</a></li>
+          {% endfor %}
+          
+          -*]
