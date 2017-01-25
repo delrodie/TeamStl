@@ -132,7 +132,7 @@
                                       <li class="dropdown more-dropdown-sub">
                                           <a href="javascript:;"> Presentation </a>
                                           <ul class="dropdown-menu">
-                                            <li><a href="#">A propos de nous</a></li>
+                                            {{ render(url('menu_presentation')) }}
                                           </ul>
                                       </li>
                                       <li class="dropdown more-dropdown-sub">
@@ -217,7 +217,7 @@
                                           <i class="fa fa-plus"></i> Accueil </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{ path('admin_presentation_new')}}">
                                             <i class="fa fa-plus"></i> Presentation </a>
                                         </li>
                                         <li>

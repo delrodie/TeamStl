@@ -9,3 +9,8 @@ admin:
     path:     /admin
     defaults: { _controller: "AppBundle:Default:admin" }
     methods:  [GET, POST]
+
+menu_presentation:
+    path:     /menu/presentation
+    defaults: { _controller: "AppBundle:Menu:presentation" }
+    methods:  [GET, POST]
