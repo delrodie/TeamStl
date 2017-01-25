@@ -303,3 +303,6 @@ Ainsi nous avons comme MLD
                 ))
                 ;
           -*]
+
+    Generation Crud de la classe Initiation
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Initiation -*]
