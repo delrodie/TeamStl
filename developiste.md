@@ -285,3 +285,21 @@ Ainsi nous avons comme MLD
 2°/ **Gestion de la rubrique initiation**
     Creation des classes Initions et ImgInitiation
     ** - [*- php bin/console doctrine:generate:entity AppBundle:Initiation/ImgInitiation -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD des classes ImgInitiation et Initiation
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:ImgInitiation -*]
+
+    Modification de la classe ImgInitiationType
+    ** - [*-
+            use Symfony\Component\Form\Extension\Core\Type\FileType;
+            ...
+            $builder
+                ->add('file', FileType::class, array(
+                    'label' => "Telecharger l'illustration",
+                    'required' => false,
+                ))
+                ;
+          -*]
