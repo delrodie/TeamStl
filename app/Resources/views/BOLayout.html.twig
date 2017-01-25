@@ -138,7 +138,7 @@
                                       <li class="dropdown more-dropdown-sub">
                                           <a href="javascript:;"> Commencer le golf  </a>
                                           <ul class="dropdown-menu">
-                                            <li><a href="#">Journée decouverte</a></li>
+                                            {{ render(url('menu_initiation')) }}
                                           </ul>
                                       </li>
                                       <li class="dropdown more-dropdown-sub">
@@ -221,7 +221,7 @@
                                             <i class="fa fa-plus"></i> Presentation </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{ path('admin_initiation_new') }}">
                                             <i class="fa fa-plus"></i> Commencer le golf </a>
                                         </li>
                                         <li>

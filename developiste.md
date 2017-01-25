@@ -306,3 +306,22 @@ Ainsi nous avons comme MLD
 
     Generation Crud de la classe Initiation
     ** - [*- php bin/console doctrine:generate:crud AppBundle:Initiation -*]
+
+    Creation du menu de la classe Initiation
+    - Dans le layout
+    ** - [*- {{ render(url('menu_initiation')) }} -*]
+    - Modification du MenuController avec insertion de la classe InitiationController
+    - Creation de la route menu_initiation dans config/routing.yml
+    ** - [*-
+            menu_initiation:
+                path:     /menu/initiation
+                defaults: { _controller: "AppBundle:Menu:initiation" }
+                methods:  [GET, POST]
+          -*]
+    - Creation du template menu/initiation.html.twig
+    ** - [*-
+          {% for initiation in initiations %}
+              <li><a href="{{ path('admin_initiation_show', { 'slug': initiation.slug }) }}">{{ initiation.rubrique|upper }}</a></li>
+          {% endfor %}
+          
+          -*]

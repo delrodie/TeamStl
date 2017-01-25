@@ -14,3 +14,8 @@ menu_presentation:
     path:     /menu/presentation
     defaults: { _controller: "AppBundle:Menu:presentation" }
     methods:  [GET, POST]
+
+menu_initiation:
+    path:     /menu/initiation
+    defaults: { _controller: "AppBundle:Menu:initiation" }
+    methods:  [GET, POST]

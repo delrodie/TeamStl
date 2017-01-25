@@ -32,5 +32,20 @@ class MenuController extends Controller
       ));
   }
 
+  /**
+   * Menu de la rubrique initiation.
+   *
+   */
+  public function initiationAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $initiations = $em->getRepository('AppBundle:Initiation')->findAll();
+
+      return $this->render('menu/initiation.html.twig', array(
+          'initiations' => $initiations,
+      ));
+  }
+
 
 }
