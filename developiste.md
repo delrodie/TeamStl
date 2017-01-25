@@ -280,3 +280,8 @@ Ainsi nous avons comme MLD
                 <li><a href="{{ path('admin_presentation_show', { 'slug': presentation.slug }) }}">{{ presentation.rubrique|upper }}</a></li>
             {% endfor %}
          -*]
+
+
+2°/ **Gestion de la rubrique initiation**
+    Creation des classes Initions et ImgInitiation
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Initiation/ImgInitiation -*]
