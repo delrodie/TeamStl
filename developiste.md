@@ -323,5 +323,9 @@ Ainsi nous avons comme MLD
           {% for initiation in initiations %}
               <li><a href="{{ path('admin_initiation_show', { 'slug': initiation.slug }) }}">{{ initiation.rubrique|upper }}</a></li>
           {% endfor %}
-          
+
           -*]
+
+3°/ **Gestion de la classe Academy**
+    creation des classe Academy et imgAcademy
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Academy/ImgAcademy -*]
