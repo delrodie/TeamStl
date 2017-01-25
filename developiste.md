@@ -258,3 +258,25 @@ Ainsi nous avons comme MLD
 1°/ **Gestion de la rubrique Presentation**
     Creation des classes Presentation et ImgPresentation
     ** - [*- php bin/console doctrine:genrate:entity AppBundle:Presentation/Imgpresentation -*]
+
+    Generation CRUD des classes Presentation et ImgPresentation
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Presentation/Imgpresentation -*]
+
+    Mise en page des templates de la classe Presentation presentation/new-index-show .html.twig
+
+    Modification du routing pour integration du routing du menu presentation dans config/routing.yml
+    ** - [*-
+            menu_presentation:
+                path:     /menu/presentation
+                defaults: { _controller: "AppBundle:Menu:presentation" }
+                methods:  [GET, POST]
+          -*]
+
+    Creation de la classe MenuController dans AppBundle/Controler
+
+    Insertion du render menu dans le layout
+    ** - [*-
+            {% for presentation in presentations %}
+                <li><a href="{{ path('admin_presentation_show', { 'slug': presentation.slug }) }}">{{ presentation.rubrique|upper }}</a></li>
+            {% endfor %}
+         -*]
