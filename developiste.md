@@ -335,3 +335,10 @@ Ainsi nous avons comme MLD
 
     Generation CRUD de la classe ImgAcademy
     ** - [*- php bin/console console doctrine:generate:crud AppBundle:ImgAcademy -*]
+
+    Generation CRUD de la classe Academy
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Academy -*]
+
+    Modification de la classe AcademyType
+
+    Mise a jour des templates academy/new-show-edit .html.twig
