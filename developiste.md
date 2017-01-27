@@ -387,3 +387,11 @@ Ainsi nous avons comme MLD
 5°/ **Gestion de la classe Competition**
     Creation des classes Competition et ImgCompetition
     ** - [*- php bin/console doctrine:generate:entity AppBundle:Competition/ImgCompetition -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe ImgCompetition
+    ** - [*- php bin/console doctrine:generation:CRUD AppBundle:ImgCompetition -*]
+
+    Modification de la classe Form/ImgcompetitionType
