@@ -383,3 +383,7 @@ Ainsi nous avons comme MLD
 
     Modification de la classe SocieteType
     Mise a jour des templates academy/new-show-edit .html.twig
+
+5°/ **Gestion de la classe Competition**
+    Creation des classes Competition et ImgCompetition
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Competition/ImgCompetition -*]
