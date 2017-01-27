@@ -24,3 +24,8 @@ menu_academy:
     path:     /menu/academy
     defaults: { _controller: "AppBundle:Menu:academy" }
     methods:  [GET, POST]
+
+menu_societe:
+    path:     /menu/societe
+    defaults: { _controller: "AppBundle:Menu:societe" }
+    methods:  [GET, POST]

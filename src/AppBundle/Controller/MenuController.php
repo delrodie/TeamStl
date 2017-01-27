@@ -62,5 +62,20 @@ class MenuController extends Controller
       ));
   }
 
+  /**
+   * Menu de la rubrique societe.
+   *
+   */
+  public function societeAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $societes = $em->getRepository('AppBundle:Societe')->findAll();
+
+      return $this->render('menu/societe.html.twig', array(
+          'societes' => $societes,
+      ));
+  }
+
 
 }
