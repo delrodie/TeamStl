@@ -323,5 +323,50 @@ Ainsi nous avons comme MLD
           {% for initiation in initiations %}
               <li><a href="{{ path('admin_initiation_show', { 'slug': initiation.slug }) }}">{{ initiation.rubrique|upper }}</a></li>
           {% endfor %}
-          
+
           -*]
+
+3°/ **Gestion de la classe Academy**
+    creation des classe Academy et imgAcademy
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Academy/ImgAcademy -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe ImgAcademy
+    ** - [*- php bin/console console doctrine:generate:crud AppBundle:ImgAcademy -*]
+
+    Generation CRUD de la classe Academy
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Academy -*]
+
+    Modification de la classe AcademyType
+
+    Mise a jour des templates academy/new-show-edit .html.twig
+
+    Creation du menu
+    - creation de la route dans config/routing.yml
+    ** [*-
+        menu_academy:
+            path:     /menu/academy
+            defaults: { _controller: "AppBundle:Menu:academy" }
+            methods:  [GET, POST]
+        -*]
+    - creation du controller de gestion dans MenuController:academyAction
+    ** - [*-
+            public function academyAction()
+            {
+                $em = $this->getDoctrine()->getManager();          
+                $academys = $em->getRepository('AppBundle:Academy')->findAll();          
+                return $this->render('menu/academy.html.twig', array(
+                    'academys' => $academys,
+                ));
+            }
+          -*]
+    - creation du template menu/academy.html.twig
+    ** - [*-
+            {% for academy in academys %}
+                <li><a href="{{ path('admin_academy_show', { 'slug': academy.slug }) }}">{{ academy.rubrique|upper }}</a></li>
+            {% endfor %}
+          -*]
+    - Insertion dans le layout
+    ** - [*- {{ render(url('menu_academy')) }} -*]

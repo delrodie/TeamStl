@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Academies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Rubrique</th>
+                <th>Titre</th>
+                <th>Slug</th>
+                <th>Resume</th>
+                <th>Contenu</th>
+                <th>Tags</th>
+                <th>Publiepar</th>
+                <th>Modifiepar</th>
+                <th>Publiele</th>
+                <th>Modifiele</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for academy in academies %}
+            <tr>
+                <td><a href="{{ path('admin_academy_show', { 'id': academy.id }) }}">{{ academy.id }}</a></td>
+                <td>{{ academy.rubrique }}</td>
+                <td>{{ academy.titre }}</td>
+                <td>{{ academy.slug }}</td>
+                <td>{{ academy.resume }}</td>
+                <td>{{ academy.contenu }}</td>
+                <td>{{ academy.tags }}</td>
+                <td>{{ academy.publiePar }}</td>
+                <td>{{ academy.modifiePar }}</td>
+                <td>{{ academy.publieLe }}</td>
+                <td>{{ academy.modifieLe }}</td>
+                <td>{% if academy.statut %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_academy_show', { 'id': academy.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_academy_edit', { 'id': academy.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_academy_new') }}">Create a new academy</a>
+        </li>
+    </ul>
+{% endblock %}

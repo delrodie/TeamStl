@@ -19,3 +19,8 @@ menu_initiation:
     path:     /menu/initiation
     defaults: { _controller: "AppBundle:Menu:initiation" }
     methods:  [GET, POST]
+
+menu_academy:
+    path:     /menu/academy
+    defaults: { _controller: "AppBundle:Menu:academy" }
+    methods:  [GET, POST]
