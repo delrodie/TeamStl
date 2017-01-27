@@ -329,3 +329,9 @@ Ainsi nous avons comme MLD
 3°/ **Gestion de la classe Academy**
     creation des classe Academy et imgAcademy
     ** - [*- php bin/console doctrine:generate:entity AppBundle:Academy/ImgAcademy -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe ImgAcademy
+    ** - [*- php bin/console console doctrine:generate:crud AppBundle:ImgAcademy -*]
