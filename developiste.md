@@ -342,3 +342,31 @@ Ainsi nous avons comme MLD
     Modification de la classe AcademyType
 
     Mise a jour des templates academy/new-show-edit .html.twig
+
+    Creation du menu
+    - creation de la route dans config/routing.yml
+    ** [*-
+        menu_academy:
+            path:     /menu/academy
+            defaults: { _controller: "AppBundle:Menu:academy" }
+            methods:  [GET, POST]
+        -*]
+    - creation du controller de gestion dans MenuController:academyAction
+    ** - [*-
+            public function academyAction()
+            {
+                $em = $this->getDoctrine()->getManager();          
+                $academys = $em->getRepository('AppBundle:Academy')->findAll();          
+                return $this->render('menu/academy.html.twig', array(
+                    'academys' => $academys,
+                ));
+            }
+          -*]
+    - creation du template menu/academy.html.twig
+    ** - [*-
+            {% for academy in academys %}
+                <li><a href="{{ path('admin_academy_show', { 'slug': academy.slug }) }}">{{ academy.rubrique|upper }}</a></li>
+            {% endfor %}
+          -*]
+    - Insertion dans le layout
+    ** - [*- {{ render(url('menu_academy')) }} -*]
