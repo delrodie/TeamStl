@@ -370,3 +370,7 @@ Ainsi nous avons comme MLD
           -*]
     - Insertion dans le layout
     ** - [*- {{ render(url('menu_academy')) }} -*]
+
+4°/ **Gestion de la classe Societe**
+    Creation des classes Societe
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Societe]
