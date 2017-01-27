@@ -162,7 +162,7 @@
                                       <li class="dropdown more-dropdown-sub">
                                           <a href="javascript:;"> Sociétés </a>
                                           <ul class="dropdown-menu">
-                                            <li><a href="#">Sponsoring</a></li>
+                                            {{ render(url('menu_societe')) }}
                                           </ul>
                                       </li>
                                       <li class="dropdown more-dropdown-sub">
@@ -237,7 +237,7 @@
                                             <i class="fa fa-plus"></i> Compétitions </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{ path('admin_societe_new')}}">
                                             <i class="fa fa-plus"></i> Sociétés </a>
                                         </li>
                                         <li>

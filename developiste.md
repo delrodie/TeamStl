@@ -370,3 +370,16 @@ Ainsi nous avons comme MLD
           -*]
     - Insertion dans le layout
     ** - [*- {{ render(url('menu_academy')) }} -*]
+
+4°/ **Gestion de la classe Societe**
+    Creation des classes Societe
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Societe -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe Societe
+    ** - [*- php bin/console dcotrine:generate:crud AppBundle:Societe -*]
+
+    Modification de la classe SocieteType
+    Mise a jour des templates academy/new-show-edit .html.twig

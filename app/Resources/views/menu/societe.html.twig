@@ -1,0 +1,3 @@
+{% for societe in societes %}
+    <li><a href="{{ path('admin_societe_show', { 'slug': societe.slug }) }}">{{ societe.rubrique|upper }}</a></li>
+{% endfor %}
