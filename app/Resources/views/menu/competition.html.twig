@@ -1,0 +1,3 @@
+{% for competition in competitions %}
+    <li><a href="{{ path('admin_competition_show', { 'slug': competition.slug }) }}">{{ competition.rubrique|upper }}</a></li>
+{% endfor %}

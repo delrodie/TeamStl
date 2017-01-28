@@ -29,3 +29,8 @@ menu_societe:
     path:     /menu/societe
     defaults: { _controller: "AppBundle:Menu:societe" }
     methods:  [GET, POST]
+
+menu_competition:
+    path:     /menu/competition
+    defaults: { _controller: "AppBundle:Menu:competition" }
+    methods:  [GET, POST]

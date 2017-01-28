@@ -77,5 +77,22 @@ class MenuController extends Controller
       ));
   }
 
+  /**
+   * Menu de la rubrique competition.
+   *
+   */
+  public function competitionAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $competitions = $em->getRepository('AppBundle:Competition')->findAll();
+
+      return $this->render('menu/competition.html.twig', array(
+          'competitions' => $competitions,
+      ));
+  }
+
+  
+
 
 }

@@ -26,7 +26,7 @@ class CompetitionController extends Controller
 
         $competitions = $em->getRepository('AppBundle:Competition')->findAll();
 
-        return $this->render('competition/index.html.twig', array(
+        return $this->render('competition/calendrier.html.twig', array(
             'competitions' => $competitions,
         ));
     }
@@ -133,4 +133,6 @@ class CompetitionController extends Controller
             ->getForm()
         ;
     }
+
+    
 }
