@@ -395,3 +395,18 @@ Ainsi nous avons comme MLD
     ** - [*- php bin/console doctrine:generation:CRUD AppBundle:ImgCompetition -*]
 
     Modification de la classe Form/ImgcompetitionType
+
+    Generation crud de la classe Competition
+    ** - [*- php bin/console doctrine:generate:CRUD AppBundle:Competition -*]
+
+    Ajout des attributs a l'entité
+    ** - [*-
+            Journee(boolean)
+            Periode(boolean)
+          -*]
+
+    Mise a jour de la classe Competition et de la base de données
+    ** - [*-
+            php bin/console doctrine:generate:entities AppBundle:Competition
+            php bin/console doctrine:schema:update --force
+          -*]
