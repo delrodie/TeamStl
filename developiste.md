@@ -472,3 +472,13 @@ Ainsi nous avons comme MLD
             }
           -*]
     - Creation du template de competition/calendrier.html.twig
+
+6°/ **Gestion de la classe Evenement**
+    Creation de la classe Evenement
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Evenement -*]
+
+    Mise a jour de la base de donnée
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe Evenement
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Evenement -*]
