@@ -156,7 +156,8 @@
                                       <li class="dropdown more-dropdown-sub">
                                           <a href="javascript:;"> Competitions </a>
                                           <ul class="dropdown-menu">
-                                            <li><a href="#">Calendrier</a></li>
+                                            <li><a href="{{ path('admin_competition_calendrier')}}">Calendrier</a></li>
+                                            {{ render(url('menu_competition')) }}
                                           </ul>
                                       </li>
                                       <li class="dropdown more-dropdown-sub">
@@ -233,7 +234,7 @@
                                             <i class="fa fa-plus"></i> Membre </a>
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="{{ path('admin_competition_new')}}">
                                             <i class="fa fa-plus"></i> Compétitions </a>
                                         </li>
                                         <li>

@@ -20,11 +20,26 @@ class DefaultController extends Controller
     }
 
     /**
-     * 
+     *
      */
     public function adminAction(Request $request)
     {
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig');
     }
+
+    /**
+     * Liste des compétitions.
+     *
+     */
+     public function calendrierAction()
+     {
+         $em = $this->getDoctrine()->getManager();
+
+         $competitions = $em->getRepository('AppBundle:Competition')->getAdmincalendrier();
+
+         return $this->render('competition/calendrier.html.twig', array(
+             'competitions' => $competitions,
+         ));
+     }
 }

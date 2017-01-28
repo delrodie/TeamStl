@@ -383,3 +383,92 @@ Ainsi nous avons comme MLD
 
     Modification de la classe SocieteType
     Mise a jour des templates academy/new-show-edit .html.twig
+
+5°/ **Gestion de la classe Competition**
+    Creation des classes Competition et ImgCompetition
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Competition/ImgCompetition -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe ImgCompetition
+    ** - [*- php bin/console doctrine:generation:CRUD AppBundle:ImgCompetition -*]
+
+    Modification de la classe Form/ImgcompetitionType
+
+    Generation crud de la classe Competition
+    ** - [*- php bin/console doctrine:generate:CRUD AppBundle:Competition -*]
+
+    Ajout des attributs a l'entité
+    ** - [*-
+            Journee(boolean)
+            Periode(boolean)
+          -*]
+
+    Mise a jour de la classe Competition et de la base de données
+    ** - [*-
+            php bin/console doctrine:generate:entities AppBundle:Competition
+            php bin/console doctrine:schema:update --force
+          -*]
+
+    Creation du menu
+    - Creation de la route dans config/routing.yml
+    ** - [*-
+            menu_competition:
+                path:     /menu/competition
+                defaults: { _controller: "AppBundle:Menu:competition" }
+                methods:  [GET, POST]
+          -*]
+
+    - Creation du controller de gestion dans MenuController:competitionAction
+    ** - [*-
+            public function competitionAction()
+            {
+                $em = $this->getDoctrine()->getManager();          
+                $competitions = $em->getRepository('AppBundle:Competition')->findAll();          
+                return $this->render('menu/competition.html.twig', array(
+                    'competitions' => $competitions,
+                ));
+            }
+          -*]
+    - Creation du template menu/competition.html.twig
+    ** - [*-
+            {% for competition in competitions %}
+                <li><a href="{{ path('admin_competition_show', { 'slug': competition.slug }) }}">{{ competition.rubrique|upper }}</a></li>
+            {% endfor %}
+          -*]
+    - Insertion dans le layout
+    ** - [*- {{ render(url('menu_competition')) }} -*]
+
+    Creation de la page calendrier des competitions
+    - Creation du controller DefaultController:calendrierAction
+    ** - [*-
+            public function calendrierAction()
+            {
+                $em = $this->getDoctrine()->getManager();
+                $competitions = $em->getRepository('AppBundle:Competition')->getAdmincalendrier();
+                return $this->render('competition/calendrier.html.twig', array(
+                    'competitions' => $competitions,
+                ));
+            }
+          -*]
+    - Creation du repository dans CompetitionRepository:getAdmincalendrier
+    ** - [*-
+            public function getAdmincalendrier()
+            {
+                $em = $this->getEntityManager();
+                $qb = $em->createQuery('
+                    SELECT c
+                    FROM AppBundle:Competition c
+                    ORDER BY c.datedeb DESC
+                ')
+                ;
+                try {
+                    $result = $qb->getResult();
+                    return $result;
+                } catch (NoResultException $e) {
+                    return $e;
+                }
+            }
+          -*]
+    - Creation du template de competition/calendrier.html.twig
