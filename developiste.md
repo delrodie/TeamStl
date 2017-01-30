@@ -488,3 +488,8 @@ Ainsi nous avons comme MLD
     Creation des classes Phototheque et ImgPhototheque
     ** - Phototheque(titre, description, slug, publication, modification, statut)
     ** - [*- php bin/console doctrine:generate:entity AppBundle:Phototheque/ImgPhototheque -*]
+
+    Generation CRUD de la classe ImgPhototheque
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:ImgPhototheque -*]
+
+    Modification du formulaire ImgPhotothequeType
