@@ -482,3 +482,9 @@ Ainsi nous avons comme MLD
 
     Generation CRUD de la classe Evenement
     ** - [*- php bin/console doctrine:generate:crud AppBundle:Evenement -*]
+
+
+7°/ **Gestion de la classe Phototheque**
+    Creation des classes Phototheque et ImgPhototheque
+    ** - Phototheque(titre, description, slug, publication, modification, statut)
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Phototheque/ImgPhototheque -*]
