@@ -4,3 +4,38 @@ app:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+admin:
+    path:     /admin
+    defaults: { _controller: "AppBundle:Default:admin" }
+    methods:  [GET, POST]
+
+menu_presentation:
+    path:     /menu/presentation
+    defaults: { _controller: "AppBundle:Menu:presentation" }
+    methods:  [GET, POST]
+
+menu_initiation:
+    path:     /menu/initiation
+    defaults: { _controller: "AppBundle:Menu:initiation" }
+    methods:  [GET, POST]
+
+menu_academy:
+    path:     /menu/academy
+    defaults: { _controller: "AppBundle:Menu:academy" }
+    methods:  [GET, POST]
+
+menu_societe:
+    path:     /menu/societe
+    defaults: { _controller: "AppBundle:Menu:societe" }
+    methods:  [GET, POST]
+
+menu_competition:
+    path:     /menu/competition
+    defaults: { _controller: "AppBundle:Menu:competition" }
+    methods:  [GET, POST]
+
+admin_competition_calendrier:
+    path:     /admin/calendrier-des-competition
+    defaults: { _controller: "AppBundle:Default:calendrier" }
+    methods:  [GET, POST]

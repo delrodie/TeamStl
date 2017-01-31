@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Imgacademies list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Alt</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imgAcademy in imgAcademies %}
+            <tr>
+                <td><a href="{{ path('admin_imgacademy_show', { 'id': imgAcademy.id }) }}">{{ imgAcademy.id }}</a></td>
+                <td>{{ imgAcademy.url }}</td>
+                <td>{{ imgAcademy.alt }}</td>
+                <td>{% if imgAcademy.statut %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_imgacademy_show', { 'id': imgAcademy.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_imgacademy_edit', { 'id': imgAcademy.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_imgacademy_new') }}">Create a new imgAcademy</a>
+        </li>
+    </ul>
+{% endblock %}

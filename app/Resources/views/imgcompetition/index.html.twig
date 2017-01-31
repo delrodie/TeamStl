@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Imgcompetitions list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Alt</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imgCompetition in imgCompetitions %}
+            <tr>
+                <td><a href="{{ path('admin_imgcompetition_show', { 'id': imgCompetition.id }) }}">{{ imgCompetition.id }}</a></td>
+                <td>{{ imgCompetition.url }}</td>
+                <td>{{ imgCompetition.alt }}</td>
+                <td>{% if imgCompetition.statut %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_imgcompetition_show', { 'id': imgCompetition.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_imgcompetition_edit', { 'id': imgCompetition.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_imgcompetition_new') }}">Create a new imgCompetition</a>
+        </li>
+    </ul>
+{% endblock %}

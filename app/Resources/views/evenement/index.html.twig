@@ -1,0 +1,106 @@
+{% extends 'BOLayout.html.twig' %}
+
+{% block title %}
+  {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link href="{{ asset('ressources/vendor/css/evenement/todo-2.min.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block body %}
+<!-- BEGIN BREADCRUMBS -->
+<div class="breadcrumbs">
+  <h1>Evenement</h1>
+  <ol class="breadcrumb">
+    <li>
+      <a href="{{ path('homepage')}}">Accueil</a>
+    </li>
+    <li>
+      <a href="#">communaute</a>
+    </li>
+    <li class="active">EVENEMENT</li>
+  </ol>
+  <!-- Sidebar Toggle Button -->
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".page-sidebar">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="toggle-icon">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    </span>
+  </button>
+  <!-- Sidebar Toggle Button -->
+  </div>
+  <!-- END BREADCRUMBS -->
+  <!-- BEGIN SIDEBAR CONTENT LAYOUT -->
+  <div class="page-content-container">
+    <div class="page-content-row">
+    <!-- BEGIN PAGE SIDEBAR -->
+    <div class="page-sidebar">
+      <nav class="navbar" role="navigation"></nav>
+    </div>
+    <!-- END PAGE SIDEBAR -->
+    <div class="page-content-col">
+      <!-- BEGIN PAGE BASE CONTENT -->
+      <div class="blog-page blog-content-2">
+        <div class="row">
+          <div class="todo-content">
+            <div class="portlet light bordered">
+              <!-- PROJECT HEAD -->
+              <div class="portlet-title">
+                <div class="caption">
+                  <i class="icon-bar-chart font-green-sharp hide"></i>
+                  <span class="caption-helper">Reseau Nzassa:</span> &nbsp;
+                  <span class="caption-subject font-green-sharp bold uppercase">Evenements</span>
+                </div>
+              </div>
+              <!-- end PROJECT HEAD -->
+              <div class="portlet-body">
+                <div class="row">
+                  <div class="col-md-12 col-sm-12">
+                    <div class="todo-tasklist">
+                      {% for evenement in evenements %}
+                          <div class="todo-tasklist-item todo-tasklist-item-border-green">
+                            <div class="todo-tasklist-item-title"> {{ evenement.annonce }} </div>
+                            <div class="todo-tasklist-item-text"> {{ evenement.description }} </div>
+                            <div class="todo-tasklist-controls pull-left">
+                              <span class="todo-tasklist-date">
+                                <i class="fa fa-calendar"></i> {{ evenement.datedeb }} <br>
+                                <i class="fa fa-clock-o"></i> {{ evenement.heuredeb }} - {{ evenement.heurefin }}<br>
+                                <i class="fa fa-map-marker"></i> {{ evenement.lieu }} <br>
+                                <i class="fa fa-user"></i> {{ evenement.publiePar }} <em>(Le {{ evenement.publieLe|date('d/m/Y H:m:s')}})</em>
+                              </span><br>
+                              <div class="text-right"><br>
+                                <a href="{{ path('admin_evenement_edit', {'slug': evenement.slug }) }}">
+                                  <button type="button" name="button" class="btn blue">
+                                    <i class="fa fa-edit"></i> Modifier
+                                  </button>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- END PAGE BASE CONTENT -->
+    </div>
+  </div>
+</div>
+<!-- END SIDEBAR CONTENT LAYOUT -->
+
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+  <!-- BEGIN PAGE LEVEL PLUGINS -->
+
+  <!-- END PAGE LEVEL PLUGINS -->
+{% endblock %}

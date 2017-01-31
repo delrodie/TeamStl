@@ -16,7 +16,7 @@
         <meta content="" name="description" />
         <meta content="Delrodie AMOIKON | Eden Art" name="author" />
 
-        <link rel="shortcut icon" href="favicon.ico" />
+        <link rel="shortcut icon" href="{{ asset('ressources/images/logo.jpg') }}" />
       {% block stylesheets %}
 
       <!-- BEGIN LAYOUT FIRST STYLES -->
@@ -36,6 +36,7 @@
       <!-- END THEME GLOBAL STYLES -->
 
       <link href="{{ asset('ressources/vendor/css/layout.min.css') }}" rel="stylesheet" type="text/css" />
+      <link href="{{ asset('ressources/css/bo.css') }}" rel="stylesheet" type="text/css" />
 
       {% endblock %}
     </head>
@@ -60,8 +61,9 @@
                             </button>
                             <!-- End Toggle Button -->
                             <!-- BEGIN LOGO -->
-                            <a id="index" class="page-logo" href="index.html">
-                                BackOffice<img src="../assets/layouts/layout5/img/logo.png" alt="Logo"> </a>
+                            <a id="index" class="page-logo MonLogo" href="{{ path('admin')}}">
+                                BackOffice
+                            </a>
                             <!-- END LOGO -->
                             <!-- BEGIN SEARCH -->
                             <form class="search" action="extra_search.html" method="GET">
@@ -78,7 +80,7 @@
                                     <button type="button" class="btn btn-sm md-skip dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
                                         <span>
                                           {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                                            {{ 'layout.hello'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} 
+                                            {{ 'layout.hello'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                                           {% endif %}
                                         </span>
                                         <img src="{{ asset('ressources/images/avatar.png')}}" alt=""> </button>
@@ -123,28 +125,59 @@
                                     <a href="javascript:;" class="text-uppercase">
                                         <i class="icon-folder"></i> Rubriques </a>
                                     <ul class="dropdown-menu dropdown-menu-fw">
-                                        <li class="">
-                                            <a href="{{ path('admin_rubrique_index')}}">
-                                            <i class="fa fa-list" aria-hidden="true"></i> Listes </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ path('admin_rubrique_new') }}">
-                                            <i class="fa fa-plus"></i> Ajouter </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown dropdown-fw dropdown-fw-disabled  ">
-                                    <a href="javascript:;" class="text-uppercase">
-                                        <i class="icon-doc"></i> Articles </a>
-                                   <ul class="dropdown-menu dropdown-menu-fw">
-                                        <li class="">
-                                            <a href="{{ path('admin_article_index')}}">
-                                            <i class="fa fa-list" aria-hidden="true"></i> Listes </a>
-                                        </li>
-                                        <li>
-                                            <a href="{{ path('admin_article_new')}}">
-                                            <i class="fa fa-plus"></i> Ajouter </a>
-                                        </li>
+                                      <li class="">
+                                          <a href="#">
+                                          <i class="fa fa-home" aria-hidden="true"></i> Accueil </a>
+                                      </li>
+                                      <li class="dropdown more-dropdown-sub">
+                                          <a href="javascript:;"> Presentation </a>
+                                          <ul class="dropdown-menu">
+                                            {{ render(url('menu_presentation')) }}
+                                          </ul>
+                                      </li>
+                                      <li class="dropdown more-dropdown-sub">
+                                          <a href="javascript:;"> Commencer le golf  </a>
+                                          <ul class="dropdown-menu">
+                                            {{ render(url('menu_initiation')) }}
+                                          </ul>
+                                      </li>
+                                      <li class="dropdown more-dropdown-sub">
+                                          <a href="javascript:;"> Golf academy </a>
+                                          <ul class="dropdown-menu">
+                                            {{ render(url('menu_academy')) }}
+                                          </ul>
+                                      </li>
+                                      <li class="dropdown more-dropdown-sub">
+                                          <a href="javascript:;"> Membre </a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="#">Déjà membre</a></li>
+                                          </ul>
+                                      </li>
+                                      <li class="dropdown more-dropdown-sub">
+                                          <a href="javascript:;"> Competitions </a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="{{ path('admin_competition_calendrier')}}">Calendrier</a></li>
+                                            {{ render(url('menu_competition')) }}
+                                          </ul>
+                                      </li>
+                                      <li class="dropdown more-dropdown-sub">
+                                          <a href="javascript:;"> Sociétés </a>
+                                          <ul class="dropdown-menu">
+                                            {{ render(url('menu_societe')) }}
+                                          </ul>
+                                      </li>
+                                      <li class="dropdown more-dropdown-sub">
+                                          <a href="javascript:;"> Event </a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="{{ path('admin_evenement_index') }}">Calendrier</a></li>
+                                          </ul>
+                                      </li>
+                                      <li class="dropdown more-dropdown-sub">
+                                          <a href="javascript:;"> Médiathèque </a>
+                                          <ul class="dropdown-menu">
+                                            <li><a href="{{ path('admin_phototheque_index')}}">Photos</a></li>
+                                          </ul>
+                                      </li>
                                     </ul>
                                 </li>
                                 <li class="dropdown dropdown-fw dropdown-fw-disabled  ">
@@ -173,6 +206,48 @@
                                         <li>
                                             <a href="{{ path('admin_group_index')}}">
                                             <i class="fa fa-users"></i> Groupe </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown dropdown-fw dropdown-fw-disabled  ">
+                                    <a href="javascript:;" class="text-uppercase">
+                                        <i class="fa fa-cogs"></i> Paramètre </a>
+                                   <ul class="dropdown-menu dropdown-menu-fw">
+                                        <li class="">
+                                          <a href="#">
+                                          <i class="fa fa-plus"></i> Accueil </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_presentation_new')}}">
+                                            <i class="fa fa-plus"></i> Presentation </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_initiation_new') }}">
+                                            <i class="fa fa-plus"></i> Commencer le golf </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_academy_new') }}">
+                                            <i class="fa fa-plus"></i> Golf academy </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                            <i class="fa fa-plus"></i> Membre </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_competition_new')}}">
+                                            <i class="fa fa-plus"></i> Compétitions </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_societe_new')}}">
+                                            <i class="fa fa-plus"></i> Sociétés </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_evenement_new') }}">
+                                            <i class="fa fa-plus"></i> Events </a>
+                                        </li>
+                                        <li>
+                                            <a href="{{ path('admin_phototheque_new') }}">
+                                            <i class="fa fa-plus"></i> Mediathèque </a>
                                         </li>
                                     </ul>
                                 </li>

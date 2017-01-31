@@ -245,3 +245,254 @@ Ainsi nous avons comme MLD
 7°/ **Installation de StofDoctrineExtensionsBundle**
     Installation de StofDoctrineExtensionsBundle
     ** - [*- https://github.com/Atlantic18/DoctrineExtensions/blob/master/doc/symfony2.md -*]
+
+
+
+/*****
+ *** Gestion du site de TEAM STL
+ *** @Author: Delrodie AMOIKON
+ *** @version: 1.1.*
+ *** @Date: Lundi 23 Janvier 2017
+ *****/
+
+1°/ **Gestion de la rubrique Presentation**
+    Creation des classes Presentation et ImgPresentation
+    ** - [*- php bin/console doctrine:genrate:entity AppBundle:Presentation/Imgpresentation -*]
+
+    Generation CRUD des classes Presentation et ImgPresentation
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Presentation/Imgpresentation -*]
+
+    Mise en page des templates de la classe Presentation presentation/new-index-show .html.twig
+
+    Modification du routing pour integration du routing du menu presentation dans config/routing.yml
+    ** - [*-
+            menu_presentation:
+                path:     /menu/presentation
+                defaults: { _controller: "AppBundle:Menu:presentation" }
+                methods:  [GET, POST]
+          -*]
+
+    Creation de la classe MenuController dans AppBundle/Controler
+
+    Insertion du render menu dans le layout
+    ** - [*-
+            {% for presentation in presentations %}
+                <li><a href="{{ path('admin_presentation_show', { 'slug': presentation.slug }) }}">{{ presentation.rubrique|upper }}</a></li>
+            {% endfor %}
+         -*]
+
+
+2°/ **Gestion de la rubrique initiation**
+    Creation des classes Initions et ImgInitiation
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Initiation/ImgInitiation -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD des classes ImgInitiation et Initiation
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:ImgInitiation -*]
+
+    Modification de la classe ImgInitiationType
+    ** - [*-
+            use Symfony\Component\Form\Extension\Core\Type\FileType;
+            ...
+            $builder
+                ->add('file', FileType::class, array(
+                    'label' => "Telecharger l'illustration",
+                    'required' => false,
+                ))
+                ;
+          -*]
+
+    Generation Crud de la classe Initiation
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Initiation -*]
+
+    Creation du menu de la classe Initiation
+    - Dans le layout
+    ** - [*- {{ render(url('menu_initiation')) }} -*]
+    - Modification du MenuController avec insertion de la classe InitiationController
+    - Creation de la route menu_initiation dans config/routing.yml
+    ** - [*-
+            menu_initiation:
+                path:     /menu/initiation
+                defaults: { _controller: "AppBundle:Menu:initiation" }
+                methods:  [GET, POST]
+          -*]
+    - Creation du template menu/initiation.html.twig
+    ** - [*-
+          {% for initiation in initiations %}
+              <li><a href="{{ path('admin_initiation_show', { 'slug': initiation.slug }) }}">{{ initiation.rubrique|upper }}</a></li>
+          {% endfor %}
+
+          -*]
+
+3°/ **Gestion de la classe Academy**
+    creation des classe Academy et imgAcademy
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Academy/ImgAcademy -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe ImgAcademy
+    ** - [*- php bin/console console doctrine:generate:crud AppBundle:ImgAcademy -*]
+
+    Generation CRUD de la classe Academy
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Academy -*]
+
+    Modification de la classe AcademyType
+
+    Mise a jour des templates academy/new-show-edit .html.twig
+
+    Creation du menu
+    - creation de la route dans config/routing.yml
+    ** [*-
+        menu_academy:
+            path:     /menu/academy
+            defaults: { _controller: "AppBundle:Menu:academy" }
+            methods:  [GET, POST]
+        -*]
+    - creation du controller de gestion dans MenuController:academyAction
+    ** - [*-
+            public function academyAction()
+            {
+                $em = $this->getDoctrine()->getManager();          
+                $academys = $em->getRepository('AppBundle:Academy')->findAll();          
+                return $this->render('menu/academy.html.twig', array(
+                    'academys' => $academys,
+                ));
+            }
+          -*]
+    - creation du template menu/academy.html.twig
+    ** - [*-
+            {% for academy in academys %}
+                <li><a href="{{ path('admin_academy_show', { 'slug': academy.slug }) }}">{{ academy.rubrique|upper }}</a></li>
+            {% endfor %}
+          -*]
+    - Insertion dans le layout
+    ** - [*- {{ render(url('menu_academy')) }} -*]
+
+4°/ **Gestion de la classe Societe**
+    Creation des classes Societe
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Societe -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe Societe
+    ** - [*- php bin/console dcotrine:generate:crud AppBundle:Societe -*]
+
+    Modification de la classe SocieteType
+    Mise a jour des templates academy/new-show-edit .html.twig
+
+5°/ **Gestion de la classe Competition**
+    Creation des classes Competition et ImgCompetition
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Competition/ImgCompetition -*]
+
+    Mise a jour de la base de données
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe ImgCompetition
+    ** - [*- php bin/console doctrine:generation:CRUD AppBundle:ImgCompetition -*]
+
+    Modification de la classe Form/ImgcompetitionType
+
+    Generation crud de la classe Competition
+    ** - [*- php bin/console doctrine:generate:CRUD AppBundle:Competition -*]
+
+    Ajout des attributs a l'entité
+    ** - [*-
+            Journee(boolean)
+            Periode(boolean)
+          -*]
+
+    Mise a jour de la classe Competition et de la base de données
+    ** - [*-
+            php bin/console doctrine:generate:entities AppBundle:Competition
+            php bin/console doctrine:schema:update --force
+          -*]
+
+    Creation du menu
+    - Creation de la route dans config/routing.yml
+    ** - [*-
+            menu_competition:
+                path:     /menu/competition
+                defaults: { _controller: "AppBundle:Menu:competition" }
+                methods:  [GET, POST]
+          -*]
+
+    - Creation du controller de gestion dans MenuController:competitionAction
+    ** - [*-
+            public function competitionAction()
+            {
+                $em = $this->getDoctrine()->getManager();          
+                $competitions = $em->getRepository('AppBundle:Competition')->findAll();          
+                return $this->render('menu/competition.html.twig', array(
+                    'competitions' => $competitions,
+                ));
+            }
+          -*]
+    - Creation du template menu/competition.html.twig
+    ** - [*-
+            {% for competition in competitions %}
+                <li><a href="{{ path('admin_competition_show', { 'slug': competition.slug }) }}">{{ competition.rubrique|upper }}</a></li>
+            {% endfor %}
+          -*]
+    - Insertion dans le layout
+    ** - [*- {{ render(url('menu_competition')) }} -*]
+
+    Creation de la page calendrier des competitions
+    - Creation du controller DefaultController:calendrierAction
+    ** - [*-
+            public function calendrierAction()
+            {
+                $em = $this->getDoctrine()->getManager();
+                $competitions = $em->getRepository('AppBundle:Competition')->getAdmincalendrier();
+                return $this->render('competition/calendrier.html.twig', array(
+                    'competitions' => $competitions,
+                ));
+            }
+          -*]
+    - Creation du repository dans CompetitionRepository:getAdmincalendrier
+    ** - [*-
+            public function getAdmincalendrier()
+            {
+                $em = $this->getEntityManager();
+                $qb = $em->createQuery('
+                    SELECT c
+                    FROM AppBundle:Competition c
+                    ORDER BY c.datedeb DESC
+                ')
+                ;
+                try {
+                    $result = $qb->getResult();
+                    return $result;
+                } catch (NoResultException $e) {
+                    return $e;
+                }
+            }
+          -*]
+    - Creation du template de competition/calendrier.html.twig
+
+6°/ **Gestion de la classe Evenement**
+    Creation de la classe Evenement
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Evenement -*]
+
+    Mise a jour de la base de donnée
+    ** - [*- php bin/console doctrine:schema:update --force -*]
+
+    Generation CRUD de la classe Evenement
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Evenement -*]
+
+
+7°/ **Gestion de la classe Phototheque**
+    Creation des classes Phototheque et ImgPhototheque
+    ** - Phototheque(titre, description, slug, publication, modification, statut)
+    ** - [*- php bin/console doctrine:generate:entity AppBundle:Phototheque/ImgPhototheque -*]
+
+    Generation CRUD de la classe ImgPhototheque
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:ImgPhototheque -*]
+
+    Modification du formulaire ImgPhotothequeType
+
+    Generation CRUD de la classe Phototheque
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Phototheque -*]
