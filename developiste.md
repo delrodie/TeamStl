@@ -493,3 +493,6 @@ Ainsi nous avons comme MLD
     ** - [*- php bin/console doctrine:generate:crud AppBundle:ImgPhototheque -*]
 
     Modification du formulaire ImgPhotothequeType
+
+    Generation CRUD de la classe Phototheque
+    ** - [*- php bin/console doctrine:generate:crud AppBundle:Phototheque -*]

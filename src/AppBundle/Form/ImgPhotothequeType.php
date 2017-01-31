@@ -7,6 +7,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 class ImgPhotothequeType extends AbstractType
 {
     /**
@@ -18,7 +20,12 @@ class ImgPhotothequeType extends AbstractType
           //->add('photo')
           //->add('url')
           //->add('alt')
-          //->add('statut')
+          ->add('description', TextareaType::class, array(
+                'attr'  => array(
+                    'class' => 'form-control'
+                ),
+                'required' => 'true'
+          ))
           ->add('file', FileType::class, array(
               'label' => "Telecharger la photo",
               'required' => false,
