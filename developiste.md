@@ -496,3 +496,16 @@ Ainsi nous avons comme MLD
 
     Generation CRUD de la classe Phototheque
     ** - [*- php bin/console doctrine:generate:crud AppBundle:Phototheque -*]
+
+
+/**********
+ *** Integration du frontoffice du site
+ *** @Author Delrodie AMOIKON
+ *** @Date 31-01-2017
+***********/
+
+1°/ Layout du front office
+    - Integration des ressources foundation dans le repertoire web/ressources
+    - Creation du fichier FOLayout.html.twig 
+
+2

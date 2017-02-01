@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="google-site-verification" content="auCiBkUwFhfoaCXH7YrDV_T0mJGluiRvYRu0U5CjIFc" />
+    <title>Team STL :: Golf Academy</title>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="keywords" content="Golf, President Golf Club, trou, 18 trous, green, Yamoussoukro, Cote d'ivoire, Abidjan "  />
+    <meta name="description" content="">
+    <meta name="revisit" content="1 month" />
+    <meta name="revisit-after" content="30 days">
+    <meta name="Author" content="Abloqov group, Delrodie AMOIKON">
+    <meta name="Copyright" content="www.team-stl.com">
+    <meta name="Content-Language" content="FR">
+    <meta name="distribution" content="global" />
+    <meta name="Audience" content="All" />
+    <meta name="Robots" content="full">
+
+    <link rel="shortcut icon" href="{{ asset('ressources/images/logo.jpg') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ asset('ressources/images/logo.jpg') }}" />
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('ressources/css/teamstl.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ressources/vendor/foundation/css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('ressources/vendor/font-awesome-4.5.0/css/font-awesome.min.css') }}">
+
+    <style>
+         .title-bar {
+      width: 100%;
+      z-index: 10;
+      transition: height .25s ease;
+      height: 4.5em;
+      background-color: rgba(0, 0, 0, 0.65);
+    }
+    .title-bar .title-bar-right, .title-bar /*.title-bar-left */{
+      transition: padding-top .25s ease;
+      padding-top: 0.7em;
+    }
+    .title-bar-left{
+    	transition: padding-top .125s ease;
+    	padding-top: 0;
+    }
+    .title-bar.shrink {
+      height: 3.7em;
+    }
+    .title-bar.shrink .title-bar-right, .title-bar.shrink .title-bar-left {
+      padding-top: 0em;
+    }
+    .title-bar .dropdown.menu li {
+      float: left;
+    }
+    .title-bar .dropdown.menu .is-dropdown-submenu {
+      border: none;
+      background-color: rgba(0, 0, 0, 0.65);
+      border-left: solid 1px rgba(121, 168, 24, 0.5);
+      border-right: solid 1px rgba(121, 168, 24, 0.5);
+      border-bottom: solid 1px rgba(121, 168, 24, 0.5);
+    }
+    #root {
+      margin-top: 2em;
+    }
+    </style>
+    <style>
+        [class*="columns"]{ border: #000000 dotted 0px}
+    </style>
+
+</head>
+<body>
+
+    <!-- Espace connexion -->
+    <div class="teamstl-bar-connexion">
+      <div class="row text-right">
+        <div class="small-6 medium-8 columns">
+          <a href="https://www.facebook.com/golfacademyTeamSTL/" class="facebook" target="_blank"><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></a>
+          <a href="" class="google"><i class="fa fa-google-plus-square fa-lg" aria-hidden="true"></i></a>
+          <a href="" class="instagram"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a>
+        </div>
+        <div class="small-5 medium-3 columns text-right">
+          <a href="" class=""><i class="fa fa-user fa-lg" aria-hidden="true"></i> Espace membre</a>
+        </div>
+        <div class="small-1 columns text-right">
+          <a href="http://www.team-stl.com/webmail" target="_blank" class=""><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <!-- \Espace connexion -->
+      <!-- Menu pour ecran large (ordinateur) -->
+        <div data-sticky-container class="show-for-large">
+          <div class="title-bar teamstl-bar" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="1">
+            <div class="title-bar-left">
+              <img src="{{ asset('ressources/images/logo-team.png')}}" alt="Logo Team STL" class="responsive" />
+            </div>
+            <div class="title-bar-right">
+              <ul class="menu dropdown" data-dropdown-menu>
+                <li><a href="index.php">Accueil</a></li>
+                <li>
+                  <a href="#">Presentation</a>
+                  <ul class="menu text-left">
+                    <li><a href="">A propos de nous</a></li>
+                    <li><a href="">le golf (PGC)</a></li>
+                    <li><a href="">Le parcours</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Commencer le golf</a>
+                  <ul class="menu text-left">
+                    <li><a href="">Journée decouverte</a></li>
+                    <li><a href="">Pack debutant</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="projets.php">Golf academy</a>
+                  <ul class="menu text-left">
+                    <li><a href="">Les pros</a></li>
+                    <li><a href="">Cours / stages juniors</a></li>
+                    <li><a href="">Projet golf pour tous</a></li>
+                    <li><a href="">Cours individuels / collectifs</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Membres</a>
+                  <ul class="menu text-left">
+                    <li><a href="#">Deja membre</a></li>
+                    <li><a href="#">Devenir membre</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Competitions</a>
+                  <ul class="menu text-left">
+                    <li><a href="#">Calendrier</a></li>
+                    <li><a href="#">Randgold resources</a></li>
+                    <li><a href="#">Kenya airways</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Sociétés</a>
+                  <ul class="menu text-left">
+                    <li><a href="#">Sponsoring</a></li>
+                    <li><a href="#">Initiations au golf</a></li>
+                    <li><a href="#">Golf for business</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Event</a>
+                  <ul class="menu text-left">
+                    <li><a href="#">Calendrier</a></li>
+                    <li><a href="#">Promo</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#">Mediatheque</a>
+                  <ul class="menu text-left">
+                    <li><a href="#">Photos</a></li>
+                    <li><a href="videos.php">Videos</a></li>
+                    <li><a href="#">Presse</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- \Menu -->
+    <!-- CAROUSSEL -->
+    <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-options="animInFromLeft:fade-in; animInFromRight:fade-in; animOutToLeft:fade-out; animOutToRight:fade-out;">
+
+      <ul class="orbit-container">
+        <button class="orbit-previous"><span class="show-for-sr">Pr&eacute;c&eacute;dent</span>&#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Suivant</span>&#9654;&#xFE0E;</button>
+        <li class="is-active orbit-slide">
+          <img class="orbit-image" src="{{ asset('ressources/images/caroussel/ca01.jpg')}}" alt="Space">
+          <figcaption class="orbit-caption">President Golf Club</figcaption>
+        </li>
+        <li class="orbit-slide">
+          <img class="orbit-image" src="{{ asset('ressources/images/caroussel/ca02.jpg')}}" alt="Space">
+          <figcaption class="orbit-caption">President Golf Club</figcaption>
+        </li>
+        <li class="orbit-slide">
+          <img class="orbit-image" src="{{ asset('ressources/images/caroussel/ca03.jpg')}}" alt="Space">
+          <figcaption class="orbit-caption">President Golf Club</figcaption>
+        </li>
+        <li class="orbit-slide">
+          <img class="orbit-image" src="{{ asset('ressources/images/caroussel/ca04.jpg')}}" alt="Space">
+          <figcaption class="orbit-caption">President Golf Club</figcaption>
+        </li>
+      </ul>
+      <!--<nav class="orbit-bullets">
+        <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span class="show-for-sr">Current Slide</span></button>
+        <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
+        <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
+      </nav>-->
+
+    </div>
+    <!-- \CAROUSSEL -->
+
+    <div class="teamstl-body">
+      <!-- 1ere ligne -->
+      <div class="row teamstl-row">
+        <div class="small-12 medium-10 large-8 medium-centered columns">
+          <div class="row small-up-1 medium-up-3 teamstl-bloc">
+            <div class="columns bloc">
+              <a href="">
+                <img src="{{ asset('ressources/images/accueil/commencer-le-golf.jpg')}}">
+              <div class="tuile">
+                <div class="titre">
+                  COMMENCER LE GOLF
+                </div>
+                <div class="sous-titre">
+                  Decouvrir le golf
+                </div>
+                <div class="icon">
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+              </div>
+              </a>
+            </div>
+            <div class="columns bloc">
+              <a href="">
+                <img src="{{ asset('ressources/images/accueil/golf-academy.jpg')}}">
+              <div class="tuile">
+                <div class="titre">
+                  GOLF ACADEMY
+                </div>
+                <div class="sous-titre">
+                  Cours et stage de golf
+                </div>
+                <div class="icon">
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+              </div>
+              </a>
+            </div>
+            <div class="columns bloc">
+              <a href="">
+                <img src="{{ asset('ressources/images/accueil/societe.jpg')}}">
+              <div class="tuile">
+                <div class="titre">
+                  SOCIETE
+                </div>
+                <div class="sous-titre">
+                  Golf for business
+                </div>
+                <div class="icon">
+                  <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                </div>
+              </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- \1ere ligne -->
+      <!-- 2e ligne -->
+      <div class="row teamstl-row">
+        <div class="small-12 medium-12 large-11 medium-centered columns">
+          <div class="row">
+            <div class="small-12 medium-3 columns">
+              <!-- Meteo -->
+              <div class="row teamstl-meteo">
+                <div class="columns">
+                  <div id="cont_OTg3Nzl8NXwxfDF8NHxGRkZGRkZ8NnxGRkZGRkZ8Y3wx"><div id="spa_OTg3Nzl8NXwxfDF8NHxGRkZGRkZ8NnxGRkZGRkZ8Y3wx"><a id="a_OTg3Nzl8NXwxfDF8NHxGRkZGRkZ8NnxGRkZGRkZ8Y3wx" href="http://www.meteocity.com/cote-d-ivoire/yamoussoukro_v98779/" target="_blank" style="color:#333;text-decoration:none;">Météo Yamoussoukro</a> ©<a href="http://www.meteocity.com">meteocity.com</a></div><script type="text/javascript" src="http://widget.meteocity.com/js/OTg3Nzl8NXwxfDF8NHxGRkZGRkZ8NnxGRkZGRkZ8Y3wx"></script></div>
+                </div>
+              </div>
+              <!-- \Meteo -->
+              <!-- Photos -->
+              <div class="row teamstl-photos">
+                <div class="small-12 columns">
+                  <div class="titre">
+                    PGC en photos
+                  </div>
+                  <div class="row">
+                    <div class="small-12 columns">
+                      <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+                        <ul class="orbit-container">
+                          <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+                          <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+                          <li class="is-active orbit-slide">
+                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/01.JPG')}}" alt="Space">
+                          </li>
+                          <li class="orbit-slide">
+                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/02.JPG')}}" alt="Space">
+                          </li>
+                          <li class="orbit-slide">
+                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/03.JPG')}}" alt="Space">
+                          </li>
+                          <li class="orbit-slide">
+                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/04.JPG')}}" alt="Space">
+                          </li>
+                          <li class="is-active orbit-slide">
+                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/05.JPG')}}" alt="Space">
+                          </li>
+                          <li class="orbit-slide">
+                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/06.JPG')}}" alt="Space">
+                          </li>
+                          <li class="orbit-slide">
+                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/07.jpg')}}" alt="Space">
+                          </li>
+                          <li class="orbit-slide">
+                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/08.jpg')}}" alt="Space">
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- \Photos -->
+            </div>
+            <div class="small-12 medium-9 columns">
+              <div class="row small-up-1 medium-up-3 teamstl-bloc">
+                <div class="columns bloc">
+                   <a href="">
+                    <img src="{{ asset('ressources/images/competition/belier.jpg')}}">
+                    <div class="tuile-competition hide-for-small-only">
+                      <div class="titre">
+                        Le Belier
+                      </div>
+                      <div class="content">
+                        La compétition Le Belier se deroulera le 05 Novembre 2016
+                      </div>
+                      <div class="icon">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="teamstl-competition-participation">
+                    <a href="">
+                      <div class="content">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        Inscrivez-vous au <br>00225 07 28 62 47
+teamstl.sa@gmail.com
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="columns bloc">
+                  <a href="">
+                    <img src="{{ asset('ressources/images/competition/randgold.jpg')}}">
+                    <div class="tuile-competition hide-for-small-only">
+                      <div class="titre">
+                        Randgold resources
+                      </div>
+                      <div class="content">
+                        La compétition Randgold Ressources se deroulera le 22 Octobre 2016
+                      </div>
+                      <div class="icon">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="teamstl-competition-participation">
+                    <a href="">
+                      <div class="content">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        Inscrivez-vous au <br>00225 07 28 62 47
+teamstl.sa@gmail.com
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="columns bloc">
+                   <a href="">
+                    <img src="{{ asset('ressources/images/competition/kenya-airways.jpg')}}">
+                    <div class="tuile-competition hide-for-small-only">
+                      <div class="titre">
+                        Kenya Airways
+                      </div>
+                      <div class="content">
+                        La compétition Kenya Airways se deroulera le 26 Novembre 2016
+                      </div>
+                      <div class="icon">
+                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </a>
+                  <div class="teamstl-competition-participation">
+                    <a href="">
+                      <div class="content">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        Inscrivez-vous au <br>00225 07 28 62 47
+teamstl.sa@gmail.com
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- \2e ligne -->
+      <!-- 3e ligne -->
+      <div class="row teamstl-row">
+        <div class="small-12 medium-12 large-11 medium-centered columns">
+          <div class="row teamstl-partenaires">
+            <div class="small-3 columns">
+              <label>Nos partenaires</label>
+            </div>
+            <div class="small-9 columns text-center">
+              <div class="row small-up-2 medium-up-5">
+                <div class="columns">
+                  <img src="{{ asset('ressources/images/partenaires/pgc.jpg')}}">
+                </div>
+                <div class="columns">
+                  <img src="{{ asset('ressources/images/partenaires/sodertour.jpg')}}">
+                </div>
+                <div class="columns">
+                  <img src="{{ asset('ressources/images/partenaires/randgold.jpg')}}">
+                </div>
+                <div class="columns">
+                  <img src="{{ asset('ressources/images/partenaires/brussel-airways.jpg')}}">
+                </div>
+                <div class="columns">
+                  <img src="{{ asset('ressources/images/partenaires/sama-transport.jpg')}}">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- \3e ligne -->
+      <!-- Footer -->
+      <div class="footer">
+        <!-- Plan du site -->
+        <div class="row teamstl-plan">
+          <div class="medium-6 columns">
+            <div class="row medium-up-3 plan">
+              <div class="columns">
+                <ul>
+                  <li><a href="">A propos de nous</a></li>
+                  <li><a href="">Le golf (PGC)</a></li>
+                  <li><a href="">Le parcours</a></li>
+                  <li><a href="">Sponsoring</a></li>
+                  <li><a href="">Initiation au golf</a></li>
+                  <li><a href="">Golf for business</a></li>
+                </ul>
+              </div>
+              <div class="columns">
+                <ul>
+                  <li><a href="">Journée decouverte</a></li>
+                  <li><a href="">Pack debutant</a></li>
+                  <li><a href="">Les pros</a></li>
+                  <li><a href="">Cours/stages juniors</a></li>
+                  <li><a href="">Projets golf pour tous</a></li>
+                  <li><a href="">Cours individuels/collectifs</a></li>
+                </ul>
+              </div>
+              <div class="columns">
+                <ul>
+                  <li><a href="">Membre</a></li>
+                  <li><a href="">Devenir membre</a></li>
+                  <li><a href="">Calendrier</a></li>
+                  <li><a href="">Compétitions</a></li>
+                  <li><a href="">Photos</a></li>
+                  <li><a href="">Videos</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="medium-3 columns newsletter">
+            <form>
+              <label>Newsletter
+                <div class="input-group">
+                <input type="email" name="teamstlnewsletter" class="input-group-field">
+                <div class="input-group-button">
+                  <input type="submit" name="" value="s'inscrire" class="button">
+                </div>
+              </div>
+              </label>
+            </form>
+            <div class="row rs">
+              <div class="small-12 columns">
+                <label>Nous suivre</label>
+              </div>
+            </div>
+            <div class="row text-center">
+              <div class="small-2 small-offset-6 columns">
+                <a href="https://www.facebook.com/golfacademyTeamSTL/" class="facebook" target="_blank"><i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i></a>
+              </div>
+              <div class="small-2 columns">
+                <a href="" class="google"><i class="fa fa-google-plus-square fa-2x" aria-hidden="true"></i></a>
+              </div>
+              <div class="small-2 columns">
+                <a href="" class="instagram"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="medium-3 columns contact">
+            <img src="{{ asset('ressources/images/pgc.png')}}">
+            <p>President Golf Club</p><br>
+            <div class="row">
+              <div class="small-3 columns libelle">
+                Adresse :
+              </div>
+              <div class="small-9 columns">
+                Yamoussoukro, Côte d'Ivoire
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-3 columns libelle">
+                Tel. :
+              </div>
+              <div class="small-9 columns">
+                00225 30 64 64 64 <br>
+                00225 07 28 62 47
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-3 columns libelle">
+                Emails :
+              </div>
+              <div class="small-9 columns">
+                infos@team-stl.com <br>
+                teamstl.sa@gmail.com
+              </div>
+            </div>
+            <div class="row">
+              <div class="small-3 columns libelle">
+                Situation :
+              </div>
+              <div class="small-9 columns">
+                <a href="https://www.google.com/maps/place/Pr%C3%A9sident+Golf+Club/@6.7986179,-5.2543588,15.25z/data=!4m5!3m4!1s0x0:0x4968ee607e4fe9d4!8m2!3d6.7970585!4d-5.2533209" target="_blank">Map</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- \plan du site -->
+        <!-- Copyright -->
+        <div class="teamstl-copyright">
+          <div class="row">
+            <div class="small-8 columns text-left">
+              &copy; Copyright <a href="http://www.team-stl.com">Team STL SA</a>
+              Tous droits reservés | Juillet 2016
+            </div>
+            <!--<div class="small-4 columns text-right">
+              Powered by <a href="http://www.abloqov-group.com">ABLOQOV-GROUP</a>
+            </div>-->
+          </div>
+          </div>
+
+        <!-- \Copyright -->
+      </div>
+      <!-- \Footer -->
+
+
+      <script src="{{ asset('ressources/vendor/foundation/js/vendor/jquery.js')}}"></script>
+      <script src="{{ asset('ressources/vendor/foundation/js/vendor/what-input.js')}}"></script>
+      <script src="{{ asset('ressources/vendor/foundation/js/vendor/foundation.js')}}"></script>
+      <script src="{{ asset('ressources/vendor/foundation/js/app.js')}}"></script>
+    <script>
+      $(document).foundation();
+      $('#element').foundation('getHeightsByRow', cb);
+    </script>
+    <script>
+        $(document).foundation();
+        $('.title-bar').on('sticky.zf.stuckto:top', function(){
+        $(this).addClass('shrink');
+      }).on('sticky.zf.unstuckfrom:top', function(){
+        $(this).removeClass('shrink');
+      })
+    </script>
+
+</body>
+</html>
