@@ -61,6 +61,11 @@ fomenu_competition:
     defaults: { _controller: "AppBundle:Menu:focompetition" }
     methods:  [GET, POST]
 
+fomenu_societe:
+    path:     /menu_societe
+    defaults: { _controller: "AppBundle:Menu:fosociete" }
+    methods:  [GET, POST]
+
 # Article des entites
 fo_presentation:
     path:     /presentation/{slug}
@@ -100,4 +105,9 @@ fo_academy:
 fo_competition:
     path:     /competitions/{slug}
     defaults: { _controller: "AppBundle:Fo:competition" }
+    methods:  [GET, POST]
+
+fo_societe:
+    path:     /societe/{slug}
+    defaults: { _controller: "AppBundle:Fo:societe" }
     methods:  [GET, POST]

@@ -92,4 +92,19 @@ class FoController extends Controller
           'competitions' => $competitions,
       ));
   }
+
+  /**
+  * Recherche des articles actifs de l'entité compétition.
+  *
+  */
+ public function societeAction($slug)
+ {
+     $em = $this->getDoctrine()->getManager();
+
+     $societes = $em->getRepository('AppBundle:Societe')->getArticle($slug);
+
+     return $this->render('fr/societe.html.twig', array(
+         'societes' => $societes,
+     ));
+ }
 }

@@ -159,4 +159,19 @@ class MenuController extends Controller
       ));
   }
 
+    /**
+     * Menu de la rubrique academy.
+     *
+     */
+    public function fosocieteAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $societes = $em->getRepository('AppBundle:Societe')->getMenu();
+
+        return $this->render('menu/fosociete.html.twig', array(
+            'societes' => $societes,
+        ));
+    }
+
 }
