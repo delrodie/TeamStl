@@ -39,3 +39,30 @@ admin_competition_calendrier:
     path:     /admin/calendrier-des-competition
     defaults: { _controller: "AppBundle:Default:calendrier" }
     methods:  [GET, POST]
+
+# Menu Front office
+fomenu_presentation:
+    path:     /menu-presentation
+    defaults: { _controller: "AppBundle:Menu:fopresentation" }
+    methods:  [GET, POST]
+
+# Article des entites
+fo_presentation:
+    path:     /presentation/{slug}
+    defaults: { _controller: "AppBundle:Fo:presentation" }
+    methods:  [GET, POST]
+
+fo_liste_competition:
+    path:     /competition-calendrier
+    defaults: { _controller: "AppBundle:Default:competition" }
+    methods:  [GET, POST]
+
+fo_accueil_competition:
+    path:     /competition-accueil
+    defaults: { _controller: "AppBundle:Default:accueilcompetition" }
+    methods:  [GET, POST]
+
+fo_existence_competition:
+    path:     /competition-existence
+    defaults: { _controller: "AppBundle:Default:existencecompetition" }
+    methods:  [GET, POST]

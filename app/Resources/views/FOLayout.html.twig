@@ -108,13 +108,11 @@
         </div>
         <div class="title-bar-right">
           <ul class="menu dropdown" data-dropdown-menu>
-            <li><a href="index.php">Accueil</a></li>
+            <li><a href="{{ path('homepage')}}">Accueil</a></li>
             <li>
               <a href="#">Presentation</a>
               <ul class="menu text-left">
-                <li><a href="">A propos de nous</a></li>
-                <li><a href="pgc.php">le golf (PGC)</a></li>
-                <li><a href="parcours.php">Le parcours</a></li>
+                {{ render(url('fomenu_presentation')) }}
               </ul>
             </li>
             <li>
@@ -200,17 +198,10 @@
                             <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
                             <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
                             <li class="is-active orbit-slide">
-                              <img class="orbit-image" src="{{ asset('ressources/images/competition/belier.jpg')}}" alt="Space">
-                              <figcaption class="orbit-caption">01 Octobre 2016</figcaption>
+                              <img class="orbit-image" src="{{ asset('ressources/images/competition/calendrier.jpg')}}" alt="Space">
+                              <figcaption class="orbit-caption">Calendrier des compétitions</figcaption>
                             </li>
-                            <li class="orbit-slide">
-                              <img class="orbit-image" src="{{ asset('ressources/images/competition/randgold.jpg')}}" alt="Space">
-                              <figcaption class="orbit-caption">29 Octobre 2016</figcaption>
-                            </li>
-                            <li class="orbit-slide">
-                              <img class="orbit-image" src="{{ asset('ressources/images/competition/kenya-airways.jpg')}}" alt="Space">
-                              <figcaption class="orbit-caption">26 Novembre 2016</figcaption>
-                            </li>
+                            {{ render(url('fo_liste_competition')) }}
                           </ul>
                         </div>
                   </div>
