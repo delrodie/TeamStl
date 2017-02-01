@@ -33,5 +33,18 @@ class FoController extends Controller
         ));
     }
 
-    
+    /**
+    * Recherche des articles actifs de l'entité initiation au golf.
+    *
+    */
+   public function initiationAction($slug)
+   {
+       $em = $this->getDoctrine()->getManager();
+
+       $initiations = $em->getRepository('AppBundle:Initiation')->getArticle($slug);
+
+       return $this->render('fr/initiation.html.twig', array(
+           'initiations' => $initiations,
+       ));
+   }
 }

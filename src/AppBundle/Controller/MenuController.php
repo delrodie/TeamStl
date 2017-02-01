@@ -114,6 +114,19 @@ class MenuController extends Controller
       ));
   }
 
+  /**
+   * Menu de la rubrique presentation.
+   *
+   */
+  public function foinitiationAction()
+  {
+      $em = $this->getDoctrine()->getManager();
 
+      $initiations = $em->getRepository('AppBundle:Initiation')->getMenu();
+
+      return $this->render('menu/foinitiation.html.twig', array(
+          'initiations' => $initiations,
+      ));
+  }
 
 }

@@ -1,0 +1,64 @@
+{% extends 'FOLayout.html.twig' %}
+
+{% block title %}
+  {% for initiation in initiations %}
+      {{ initiation.titre }}
+  {% endfor %}
+{% endblock %}
+
+{% block meta %}
+  {% for initiation in initiations %}
+  <meta name="keywords" content="{{ initiation.tags }}"  />
+  <meta name="description" content="{{ initiation.resume }}">
+  <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ initiation.titre }}" />
+    <meta property="og:description" content="{{ initiation.resume }}" />
+    <meta property="og:url" content="http://reseau-nzassa.org/initiation/{{ initiation.slug }}" />
+    <meta property="og:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+    <meta property="og:site_name" content="S.A. TEAM STL" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="{{ initiation.resume }}"/>
+    <meta name="twitter:title" content="{{ initiation.titre }}"/>
+    <meta name="twitter:domain" content="S.A. TEAM STL"/>
+    <meta property="twitter:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+  {% endfor %}
+{% endblock %}
+
+{% block body %}
+
+{% for initiation in initiations %}
+<!-- colonne principale -->
+     <div class="medium-8 columns">
+         <!-- breadcrumbs -->
+       <nav aria-label="You are here:" role="navigation">
+         <ul class="breadcrumbs">
+           <li><a href="{{ path('homepage') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+           <!--<li><a href="#">Features</a></li>-->
+           <li class="disabled">initiation</li>
+           <li>
+             <span class="show-for-sr">Current: </span> {{ initiation.rubrique }}
+           </li>
+         </ul>
+       </nav>
+       <!-- \breadcrumbs -->
+       <div class="row">
+         <div class="columns content">
+           <div class="titre">{{ initiation.titre }} </div>
+           {% if initiation.image %}
+               <img src="{{ asset('ressources/images/initiation/' ~ initiation.image.id ~ '.' ~ initiation.image.url )}}" alt="{{ initiation.titre }}" class="thumbnail" />
+           {% else %}
+               <img src="{{ asset('ressources/images/logo.jpg')}}" alt="{{ initiation.titre }}" class="thumbnail" />
+           {% endif %}
+             <p>
+               {{ initiation.contenu|raw }}
+             </p>
+
+         </div>
+       </div>
+     </div>
+     <!-- \colonne principale -->
+{% endfor %}
+
+{% endblock %}

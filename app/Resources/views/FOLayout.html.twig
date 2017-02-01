@@ -15,13 +15,13 @@
       <meta property="og:title" content="La S.A. Team STL est une équipe de passionnés de golf" />
       <meta property="og:description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population" />
       <meta property="og:url" content="http://reseau-nzassa.org/" />
-      <meta property="og:image" content="http://www.team-stl.com.com/{{ asset('ressources/images/logo.jpg') }}" />
+      <meta property="og:image" content="http://www.team-stl.com.com{{ asset('ressources/images/logo.jpg') }}" />
       <meta property="og:site_name" content="S.A. TEAM STL" />
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population"/>
       <meta name="twitter:title" content="La S.A. Team STL est une équipe de passionnés de golf"/>
       <meta name="twitter:domain" content="S.A. TEAM STL"/>
-      <meta property="twitter:image" content="http://www.team-stl.com.com/{{ asset('ressources/images/logo.jpg') }}" />
+      <meta property="twitter:image" content="http://www.team-stl.com.com{{ asset('ressources/images/logo.jpg') }}" />
     {% endblock %}
 
     <meta name="revisit" content="1 month" />
@@ -118,8 +118,7 @@
             <li>
               <a href="#">Commencer le golf</a>
               <ul class="menu text-left">
-                <li><a href="">Journée decouverte</a></li>
-                <li><a href="">Pack debutant</a></li>
+                {{ render(url('fomenu_initiation')) }}
               </ul>
             </li>
             <li>
