@@ -47,4 +47,19 @@ class FoController extends Controller
            'initiations' => $initiations,
        ));
    }
+
+   /**
+   * Recherche des articles actifs de l'entité golf academy.
+   *
+   */
+  public function academyAction($slug)
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $academys = $em->getRepository('AppBundle:Academy')->getArticle($slug);
+
+      return $this->render('fr/academy.html.twig', array(
+          'academys' => $academys,
+      ));
+  }
 }

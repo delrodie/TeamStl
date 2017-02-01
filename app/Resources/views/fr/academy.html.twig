@@ -1,0 +1,64 @@
+{% extends 'FOLayout.html.twig' %}
+
+{% block title %}
+  {% for academy in academys %}
+      {{ academy.titre }}
+  {% endfor %}
+{% endblock %}
+
+{% block meta %}
+  {% for academy in academys %}
+  <meta name="keywords" content="{{ academy.tags }}"  />
+  <meta name="description" content="{{ academy.resume }}">
+  <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ academy.titre }}" />
+    <meta property="og:description" content="{{ academy.resume }}" />
+    <meta property="og:url" content="http://reseau-nzassa.org/academy/{{ academy.slug }}" />
+    <meta property="og:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+    <meta property="og:site_name" content="S.A. TEAM STL" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="{{ academy.resume }}"/>
+    <meta name="twitter:title" content="{{ academy.titre }}"/>
+    <meta name="twitter:domain" content="S.A. TEAM STL"/>
+    <meta property="twitter:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+  {% endfor %}
+{% endblock %}
+
+{% block body %}
+
+{% for academy in academys %}
+<!-- colonne principale -->
+     <div class="medium-8 columns">
+         <!-- breadcrumbs -->
+       <nav aria-label="You are here:" role="navigation">
+         <ul class="breadcrumbs">
+           <li><a href="{{ path('homepage') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+           <!--<li><a href="#">Features</a></li>-->
+           <li class="disabled">academy</li>
+           <li>
+             <span class="show-for-sr">Current: </span> {{ academy.rubrique }}
+           </li>
+         </ul>
+       </nav>
+       <!-- \breadcrumbs -->
+       <div class="row">
+         <div class="columns content">
+           <div class="titre">{{ academy.titre }} </div>
+           {% if academy.image %}
+               <img src="{{ asset('ressources/images/academy/' ~ academy.image.id ~ '.' ~ academy.image.url )}}" alt="{{ academy.titre }}" class="thumbnail" />
+           {% else %}
+               <img src="{{ asset('ressources/images/logo.jpg')}}" alt="{{ academy.titre }}" class="thumbnail" />
+           {% endif %}
+             <p>
+               {{ academy.contenu|raw }}
+             </p>
+
+         </div>
+       </div>
+     </div>
+     <!-- \colonne principale -->
+{% endfor %}
+
+{% endblock %}

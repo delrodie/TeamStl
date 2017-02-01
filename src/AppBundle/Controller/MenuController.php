@@ -129,4 +129,19 @@ class MenuController extends Controller
       ));
   }
 
+  /**
+   * Menu de la rubrique academy.
+   *
+   */
+  public function foacademyAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $academys = $em->getRepository('AppBundle:Academy')->getMenu();
+
+      return $this->render('menu/foacademy.html.twig', array(
+          'academys' => $academys,
+      ));
+  }
+
 }

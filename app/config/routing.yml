@@ -51,6 +51,12 @@ fomenu_initiation:
     defaults: { _controller: "AppBundle:Menu:foinitiation" }
     methods:  [GET, POST]
 
+fomenu_academy:
+    path:     /menu_academy
+    defaults: { _controller: "AppBundle:Menu:foacademy" }
+    methods:  [GET, POST]
+
+
 # Article des entites
 fo_presentation:
     path:     /presentation/{slug}
@@ -75,4 +81,9 @@ fo_existence_competition:
 fo_initiation:
     path:     /initiation-au-golf/{slug}
     defaults: { _controller: "AppBundle:Fo:initiation" }
+    methods:  [GET, POST]
+
+fo_academy:
+    path:     /golf-academy/{slug}
+    defaults: { _controller: "AppBundle:Fo:academy" }
     methods:  [GET, POST]
