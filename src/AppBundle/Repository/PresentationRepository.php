@@ -65,6 +65,5 @@ class PresentationRepository extends \Doctrine\ORM\EntityRepository
         } catch (NoResultException $e) {
             return $e;
         }
-
     }
 }

@@ -65,6 +65,36 @@ class CompetitionRepository extends \Doctrine\ORM\EntityRepository
       } catch (NoResultException $e) {
           return $e;
       }
-
   }
+
+  /**
+  * Recherche de l'article de la rubrique compétition
+  *
+  * Author: Delrodie AMOIKON
+  * Date: 01/02/2017
+  * Since: v1.0
+  */
+  public function getArticle($slug)
+  {
+      $em = $this->getEntityManager();
+      $qb = $em->createQuery('
+          SELECT c
+          FROM AppBundle:Competition c
+          WHERE c.slug LIKE :slug
+          AND c.statut = :stat
+      ')
+        ->setParameter('slug', '%'.$slug.'%')
+        ->setParameter('stat', 1)
+      ;
+      try {
+          $result = $qb->getResult();
+
+          return $result;
+
+      } catch (NoResultException $e) {
+          return $e;
+      }
+  }
+  
+
 }

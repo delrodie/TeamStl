@@ -144,4 +144,19 @@ class MenuController extends Controller
       ));
   }
 
+  /**
+   * Menu de la rubrique competition.
+   *
+   */
+  public function focompetitionAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $competitions = $em->getRepository('AppBundle:Competition')->getCompetition();
+
+      return $this->render('menu/focompetition.html.twig', array(
+          'competitions' => $competitions,
+      ));
+  }
+
 }

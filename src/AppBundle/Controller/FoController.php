@@ -62,4 +62,34 @@ class FoController extends Controller
           'academys' => $academys,
       ));
   }
+
+  /**
+  * Recherche des articles actifs de l'entité compétition.
+  *
+  */
+ public function competitionAction($slug)
+ {
+     $em = $this->getDoctrine()->getManager();
+
+     $competitions = $em->getRepository('AppBundle:Competition')->getArticle($slug);
+
+     return $this->render('fr/competition.html.twig', array(
+         'competitions' => $competitions,
+     ));
+ }
+
+   /**
+   * Recherche des articles actifs de l'entité compétition.
+   *
+   */
+  public function calendriercompetitionAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $competitions = $em->getRepository('AppBundle:Competition')->getCompetition();
+
+      return $this->render('fr/competitioncalendrier.html.twig', array(
+          'competitions' => $competitions,
+      ));
+  }
 }
