@@ -111,3 +111,8 @@ fo_societe:
     path:     /societe/{slug}
     defaults: { _controller: "AppBundle:Fo:societe" }
     methods:  [GET, POST]
+
+fo_calendrier_evenement:
+    path:     /evenements/calendrier
+    defaults: { _controller: "AppBundle:Fo:calendrierevenement" }
+    methods:  [GET, POST]

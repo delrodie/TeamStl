@@ -34,6 +34,35 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
       } catch (NoResultException $e) {
           return $e;
       }
-
   }
+
+    /**
+    * Recherche des compétitions actives
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 01/02/2017
+    * Since: v1.0
+    */
+    public function getEvenement()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT e
+            FROM AppBundle:Evenement e
+            WHERE e.statut = :stat
+            AND e.datedeb >= :today
+            ORDER BY e.datedeb ASC
+        ')
+          ->setParameter('stat', 1)
+          ->setParameter('today', date('Y-m-d', time()))
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+    }
 }

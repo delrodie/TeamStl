@@ -93,18 +93,33 @@ class FoController extends Controller
       ));
   }
 
-  /**
-  * Recherche des articles actifs de l'entité compétition.
-  *
-  */
- public function societeAction($slug)
- {
-     $em = $this->getDoctrine()->getManager();
+    /**
+    * Recherche des articles actifs de l'entité compétition.
+    *
+    */
+   public function societeAction($slug)
+   {
+       $em = $this->getDoctrine()->getManager();
 
-     $societes = $em->getRepository('AppBundle:Societe')->getArticle($slug);
+       $societes = $em->getRepository('AppBundle:Societe')->getArticle($slug);
 
-     return $this->render('fr/societe.html.twig', array(
-         'societes' => $societes,
-     ));
- }
+       return $this->render('fr/societe.html.twig', array(
+           'societes' => $societes,
+       ));
+   }
+
+   /**
+   * Recherche des articles actifs de l'entité compétition.
+   *
+   */
+  public function calendrierevenementAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $evenements = $em->getRepository('AppBundle:Evenement')->getEvenement();
+
+      return $this->render('fr/evenementcalendrier.html.twig', array(
+          'evenements' => $evenements,
+      ));
+  }
 }

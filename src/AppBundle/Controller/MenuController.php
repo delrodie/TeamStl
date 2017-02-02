@@ -174,4 +174,19 @@ class MenuController extends Controller
         ));
     }
 
+    /**
+     * Menu de la rubrique Event.
+     *
+     */
+    public function foevenementAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $evenements = $em->getRepository('AppBundle:Evenement')->getMenu();
+
+        return $this->render('menu/foevenement.html.twig', array(
+            'evenements' => $evenements,
+        ));
+    }
+
 }
