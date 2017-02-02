@@ -31,7 +31,14 @@ class PhotothequeType extends AbstractType
                     'attr'  => array(
                         'class' => 'form-control'
                     ),
-                    'required' => 'true'
+                    'required' => 'false'
+              ))
+              ->add('url', TextType::class, array(
+                    'attr'  => array(
+                        'class' => 'form-control',
+                        'autocomplete'  => 'off'
+                    ),
+                    'required' => 'false'
               ))
               //->add('slug')->add('publiePar')->add('modifiePar')->add('publieLe')->add('modifieLe')
               ->add('statut')

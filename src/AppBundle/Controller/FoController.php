@@ -122,4 +122,35 @@ class FoController extends Controller
           'evenements' => $evenements,
       ));
   }
+
+
+     /**
+     * Recherche des photos .
+     *
+     */
+    public function photoalbumsAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $albums = $em->getRepository('AppBundle:Phototheque')->getAlbums();
+
+        return $this->render('fr/photothequealbums.html.twig', array(
+            'albums' => $albums,
+        ));
+    }
+
+    /**
+    * Recherche des photos .
+    *
+    */
+   public function photothequeAction($slug)
+   {
+       $em = $this->getDoctrine()->getManager();
+
+       $phototheques = $em->getRepository('AppBundle:Phototheque')->getArticle($slug);
+
+       return $this->render('fr/phototheque.html.twig', array(
+           'phototheques' => $phototheques,
+       ));
+   }
 }

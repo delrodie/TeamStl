@@ -66,6 +66,11 @@ fomenu_societe:
     defaults: { _controller: "AppBundle:Menu:fosociete" }
     methods:  [GET, POST]
 
+fomenu_phototheque:
+    path:     /menu_phototheque
+    defaults: { _controller: "AppBundle:Menu:fophototheque" }
+    methods:  [GET, POST]
+
 # Article des entites
 fo_presentation:
     path:     /presentation/{slug}
@@ -115,4 +120,14 @@ fo_societe:
 fo_calendrier_evenement:
     path:     /evenements/calendrier
     defaults: { _controller: "AppBundle:Fo:calendrierevenement" }
+    methods:  [GET, POST]
+
+fo_albums_photo:
+    path:     /phototheques/listes-des-albums-photos
+    defaults: { _controller: "AppBundle:Fo:photoalbums" }
+    methods:  [GET, POST]
+
+fo_phototheque:
+    path:     /phototheques/{slug}
+    defaults: { _controller: "AppBundle:Fo:phototheque" }
     methods:  [GET, POST]

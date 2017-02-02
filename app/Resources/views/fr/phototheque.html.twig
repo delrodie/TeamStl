@@ -1,0 +1,81 @@
+{% extends 'FOLayout.html.twig' %}
+
+{% block title %}
+  {% for phototheque in phototheques %}
+      {{ phototheque.titre }}
+  {% endfor %}
+{% endblock %}
+
+{% block meta %}
+
+  <meta name="keywords" content="Golf, President Golf Club, trou, 18 trous, green, Yamoussoukro, Cote d'ivoire, Abidjan, copmpetition "  />
+  <meta name="description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population">
+  <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calendrier des compétitions golf " />
+    <meta property="og:description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population" />
+    {% for phototheque in phototheques %}
+      <meta property="og:url" content="http://reseau-nzassa.org/phototheques/{{ phototheque.slug }}" />
+    {% endfor %}
+    <meta property="og:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+    <meta property="og:site_name" content="S.A. TEAM STL" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="{La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population"/>
+    <meta name="twitter:title" content="Calendrier des compétitions golf "/>
+    <meta name="twitter:domain" content="S.A. TEAM STL"/>
+    <meta property="twitter:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+
+{% endblock %}
+
+{% block body %}
+
+
+<!-- colonne principale -->
+     <div class="medium-8 columns">
+         <!-- breadcrumbs -->
+       <nav aria-label="You are here:" role="navigation">
+         <ul class="breadcrumbs">
+           <li><a href="{{ path('homepage') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+           <!--<li><a href="#">Features</a></li>-->
+           <li class="disabled">phototheque</li>
+           <li>
+             <span class="show-for-sr">Current: </span> album
+           </li>
+         </ul>
+       </nav>
+       <!-- \breadcrumbs -->
+       <div class="row">
+         <div class="columns content">
+           {% for phototheque in phototheques %}
+               <div class="titre">{{ phototheque.titre }} </div>
+               <p>{{ phototheque.description }}</p>
+               <div class="row small-up-1 medium-up-2 large-up-3">
+                 {% for photo in phototheque.image %}
+                 <div class="columns text-center videos">
+                   <div class="reveal" id="photo{{ photo.id }}" data-reveal>
+                     <div class="flex-video">
+                       <img src="{{ asset('ressources/images/phototheque/' ~ photo.id ~ '.' ~ photo.url )}}" alt="{{ photo.description }}"  />
+                       <p style="font-size:0.85em">{{ photo.description }}</p>
+                     </div>
+                     <button class="close-button" data-close aria-label="Close modal" type="button">
+                       <span aria-hidden="true">&times;</span>
+                     </button>
+                   </div>
+                   <a data-open="photo{{ photo.id }}">
+                     <img src="{{ asset('ressources/images/phototheque/' ~ photo.id ~ '.' ~ photo.url )}}" alt="{{ photo.description }}"  />
+                   </a>
+                 </div>
+                 {% endfor %}
+               </div>
+               <div class="text-right" style="font-style:italic; padding-top:50px">
+                 <a href="{{ phototheque.url }}" target="_blank">Voir tout l'album</a>
+               </div>
+           {% endfor %}
+         </div>
+       </div>
+     </div>
+     <!-- \colonne principale -->
+
+
+{% endblock %}

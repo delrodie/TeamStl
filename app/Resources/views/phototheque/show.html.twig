@@ -54,7 +54,14 @@
     <div class="page-content-col">
       <!-- BEGIN PAGE BASE CONTENT -->
       <div class="portfolio-content portfolio-3">
-
+          <div id="js-filters-juicy-projects" class="cbp-l-filters-button">
+            <a href="{{ phototheque.url }}" target="_blank">
+              <div data-filter="*" class="cbp-filter-item-active cbp-filter-item btn dark btn-outline uppercase">
+                Voir l'album complet sur Facebook 
+                <div class="cbp-filter-counter"></div>
+              </div>
+            </a>
+          </div>
           <div id="js-grid-lightbox-gallery" class="cbp">
             {% for photo in phototheque.image %}
             <div class="cbp-item web-design graphic print motion">
