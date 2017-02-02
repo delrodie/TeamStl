@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Videotheques list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Slug</th>
+                <th>Url</th>
+                <th>Publiepar</th>
+                <th>Modifiepar</th>
+                <th>Publiele</th>
+                <th>Modifiele</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for videotheque in videotheques %}
+            <tr>
+                <td><a href="{{ path('admin_videotheque_show', { 'id': videotheque.id }) }}">{{ videotheque.id }}</a></td>
+                <td>{{ videotheque.titre }}</td>
+                <td>{{ videotheque.description }}</td>
+                <td>{{ videotheque.slug }}</td>
+                <td>{{ videotheque.url }}</td>
+                <td>{{ videotheque.publiePar }}</td>
+                <td>{{ videotheque.modifiePar }}</td>
+                <td>{{ videotheque.publieLe }}</td>
+                <td>{{ videotheque.modifieLe }}</td>
+                <td>{% if videotheque.statut %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_videotheque_show', { 'id': videotheque.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_videotheque_edit', { 'id': videotheque.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_videotheque_new') }}">Create a new videotheque</a>
+        </li>
+    </ul>
+{% endblock %}

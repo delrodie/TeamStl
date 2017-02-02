@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Videotheque</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ videotheque.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ videotheque.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ videotheque.description }}</td>
+            </tr>
+            <tr>
+                <th>Slug</th>
+                <td>{{ videotheque.slug }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ videotheque.url }}</td>
+            </tr>
+            <tr>
+                <th>Publiepar</th>
+                <td>{{ videotheque.publiePar }}</td>
+            </tr>
+            <tr>
+                <th>Modifiepar</th>
+                <td>{{ videotheque.modifiePar }}</td>
+            </tr>
+            <tr>
+                <th>Publiele</th>
+                <td>{{ videotheque.publieLe }}</td>
+            </tr>
+            <tr>
+                <th>Modifiele</th>
+                <td>{{ videotheque.modifieLe }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{% if videotheque.statut %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_videotheque_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_videotheque_edit', { 'id': videotheque.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
