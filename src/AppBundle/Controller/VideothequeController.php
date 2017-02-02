@@ -48,7 +48,7 @@ class VideothequeController extends Controller
             $em->persist($videotheque);
             $em->flush($videotheque);
 
-            return $this->redirectToRoute('admin_videotheque_show', array('id' => $videotheque->getId()));
+            return $this->redirectToRoute('admin_videotheque_show', array('slug' => $videotheque->getSlug()));
         }
 
         return $this->render('videotheque/new.html.twig', array(
@@ -60,7 +60,7 @@ class VideothequeController extends Controller
     /**
      * Finds and displays a videotheque entity.
      *
-     * @Route("/{id}", name="admin_videotheque_show")
+     * @Route("/{slug}", name="admin_videotheque_show")
      * @Method("GET")
      */
     public function showAction(Videotheque $videotheque)
@@ -76,7 +76,7 @@ class VideothequeController extends Controller
     /**
      * Displays a form to edit an existing videotheque entity.
      *
-     * @Route("/{id}/edit", name="admin_videotheque_edit")
+     * @Route("/{slug}/edit", name="admin_videotheque_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Videotheque $videotheque)
@@ -88,7 +88,7 @@ class VideothequeController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('admin_videotheque_edit', array('id' => $videotheque->getId()));
+            return $this->redirectToRoute('admin_videotheque_show', array('slug' => $videotheque->getSlug()));
         }
 
         return $this->render('videotheque/edit.html.twig', array(
