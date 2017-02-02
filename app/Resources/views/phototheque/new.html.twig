@@ -81,6 +81,15 @@
                   </div>
                 </div>
                 <div class="form-group">
+                  <label class="control-label col-md-4">Lien Facebook
+                    <span class="required"> </span>
+                  </label>
+                  <div class="col-md-8">
+                    {{ form_widget(form.url) }}
+                    {{ form_errors(form.url) }}
+                  </div>
+                </div>
+                <div class="form-group">
                   <label class="control-label col-md-4">Photo</label>
                   <div class="col-md-8">
                     {{ form_widget(form.image) }}

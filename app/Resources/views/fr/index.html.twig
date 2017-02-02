@@ -95,25 +95,19 @@
                 <li>
                   <a href="#">Presentation</a>
                   <ul class="menu text-left">
-                    <li><a href="">A propos de nous</a></li>
-                    <li><a href="">le golf (PGC)</a></li>
-                    <li><a href="">Le parcours</a></li>
+                    {{ render(url('fomenu_presentation')) }}
                   </ul>
                 </li>
                 <li>
                   <a href="#">Commencer le golf</a>
                   <ul class="menu text-left">
-                    <li><a href="">Journée decouverte</a></li>
-                    <li><a href="">Pack debutant</a></li>
+                    {{ render(url('fomenu_initiation')) }}
                   </ul>
                 </li>
                 <li>
                   <a href="projets.php">Golf academy</a>
                   <ul class="menu text-left">
-                    <li><a href="">Les pros</a></li>
-                    <li><a href="">Cours / stages juniors</a></li>
-                    <li><a href="">Projet golf pour tous</a></li>
-                    <li><a href="">Cours individuels / collectifs</a></li>
+                    {{ render(url('fomenu_academy')) }}
                   </ul>
                 </li>
                 <li>
@@ -126,31 +120,27 @@
                 <li>
                   <a href="#">Competitions</a>
                   <ul class="menu text-left">
-                    <li><a href="#">Calendrier</a></li>
-                    <li><a href="#">Randgold resources</a></li>
-                    <li><a href="#">Kenya airways</a></li>
+                    <li><a href="{{ path('fo_calendrier_competition')}}">Calendrier</a></li>
+                    {{ render(url('fomenu_competition')) }}
                   </ul>
                 </li>
                 <li>
                   <a href="#">Sociétés</a>
                   <ul class="menu text-left">
-                    <li><a href="#">Sponsoring</a></li>
-                    <li><a href="#">Initiations au golf</a></li>
-                    <li><a href="#">Golf for business</a></li>
+                    {{ render(url('fomenu_societe')) }}
                   </ul>
                 </li>
                 <li>
                   <a href="#">Event</a>
                   <ul class="menu text-left">
-                    <li><a href="#">Calendrier</a></li>
-                    <li><a href="#">Promo</a></li>
+                    <li><a href="{{ path('fo_calendrier_evenement')}}">Calendrier</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">Mediatheque</a>
                   <ul class="menu text-left">
-                    <li><a href="#">Photos</a></li>
-                    <li><a href="videos.php">Videos</a></li>
+                    <li><a href="{{ path('fo_albums_photo') }}">Photos</a></li>
+                    <li><a href="#">Videos</a></li>
                     <li><a href="#">Presse</a></li>
                   </ul>
                 </li>
@@ -255,135 +245,11 @@
       <div class="row teamstl-row">
         <div class="small-12 medium-12 large-11 medium-centered columns">
           <div class="row">
-            <div class="small-12 medium-3 columns">
-              <!-- Meteo -->
-              <div class="row teamstl-meteo">
-                <div class="columns">
-                  <div id="cont_OTg3Nzl8NXwxfDF8NHxGRkZGRkZ8NnxGRkZGRkZ8Y3wx"><div id="spa_OTg3Nzl8NXwxfDF8NHxGRkZGRkZ8NnxGRkZGRkZ8Y3wx"><a id="a_OTg3Nzl8NXwxfDF8NHxGRkZGRkZ8NnxGRkZGRkZ8Y3wx" href="http://www.meteocity.com/cote-d-ivoire/yamoussoukro_v98779/" target="_blank" style="color:#333;text-decoration:none;">Météo Yamoussoukro</a> ©<a href="http://www.meteocity.com">meteocity.com</a></div><script type="text/javascript" src="http://widget.meteocity.com/js/OTg3Nzl8NXwxfDF8NHxGRkZGRkZ8NnxGRkZGRkZ8Y3wx"></script></div>
-                </div>
-              </div>
-              <!-- \Meteo -->
-              <!-- Photos -->
-              <div class="row teamstl-photos">
-                <div class="small-12 columns">
-                  <div class="titre">
-                    PGC en photos
-                  </div>
-                  <div class="row">
-                    <div class="small-12 columns">
-                      <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
-                        <ul class="orbit-container">
-                          <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
-                          <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
-                          <li class="is-active orbit-slide">
-                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/01.JPG')}}" alt="Space">
-                          </li>
-                          <li class="orbit-slide">
-                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/02.JPG')}}" alt="Space">
-                          </li>
-                          <li class="orbit-slide">
-                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/03.JPG')}}" alt="Space">
-                          </li>
-                          <li class="orbit-slide">
-                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/04.JPG')}}" alt="Space">
-                          </li>
-                          <li class="is-active orbit-slide">
-                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/05.JPG')}}" alt="Space">
-                          </li>
-                          <li class="orbit-slide">
-                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/06.JPG')}}" alt="Space">
-                          </li>
-                          <li class="orbit-slide">
-                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/07.jpg')}}" alt="Space">
-                          </li>
-                          <li class="orbit-slide">
-                            <img class="orbit-image" src="{{ asset('ressources/images/gallerie/08.jpg')}}" alt="Space">
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- \Photos -->
-            </div>
+            {{ render(url('fo_existence_competition')) }}
             <div class="small-12 medium-9 columns">
               <div class="row small-up-1 medium-up-3 teamstl-bloc">
-                <div class="columns bloc">
-                   <a href="">
-                    <img src="{{ asset('ressources/images/competition/belier.jpg')}}">
-                    <div class="tuile-competition hide-for-small-only">
-                      <div class="titre">
-                        Le Belier
-                      </div>
-                      <div class="content">
-                        La compétition Le Belier se deroulera le 05 Novembre 2016
-                      </div>
-                      <div class="icon">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="teamstl-competition-participation">
-                    <a href="">
-                      <div class="content">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        Inscrivez-vous au <br>00225 07 28 62 47
-teamstl.sa@gmail.com
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="columns bloc">
-                  <a href="">
-                    <img src="{{ asset('ressources/images/competition/randgold.jpg')}}">
-                    <div class="tuile-competition hide-for-small-only">
-                      <div class="titre">
-                        Randgold resources
-                      </div>
-                      <div class="content">
-                        La compétition Randgold Ressources se deroulera le 22 Octobre 2016
-                      </div>
-                      <div class="icon">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="teamstl-competition-participation">
-                    <a href="">
-                      <div class="content">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        Inscrivez-vous au <br>00225 07 28 62 47
-teamstl.sa@gmail.com
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div class="columns bloc">
-                   <a href="">
-                    <img src="{{ asset('ressources/images/competition/kenya-airways.jpg')}}">
-                    <div class="tuile-competition hide-for-small-only">
-                      <div class="titre">
-                        Kenya Airways
-                      </div>
-                      <div class="content">
-                        La compétition Kenya Airways se deroulera le 26 Novembre 2016
-                      </div>
-                      <div class="icon">
-                        <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                      </div>
-                    </div>
-                  </a>
-                  <div class="teamstl-competition-participation">
-                    <a href="">
-                      <div class="content">
-                        <i class="fa fa-user-plus" aria-hidden="true"></i>
-                        Inscrivez-vous au <br>00225 07 28 62 47
-teamstl.sa@gmail.com
-                      </div>
-                    </a>
-                  </div>
-                </div>
+
+                {{ render(url('fo_accueil_competition'))}}
 
               </div>
             </div>

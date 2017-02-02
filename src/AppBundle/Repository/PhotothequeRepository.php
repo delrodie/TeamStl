@@ -10,4 +10,60 @@ namespace AppBundle\Repository;
  */
 class PhotothequeRepository extends \Doctrine\ORM\EntityRepository
 {
+  /**
+    * Requête de recherche du menu de la rubrique Phototheque
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 02/02/2017
+    * Since: v1.0
+    */
+    public function getAlbums()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT p
+            FROM AppBundle:Phototheque p
+            WHERE p.statut = :stat
+        ')
+          ->setParameter('stat', 1)
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+
+    }
+
+    /**
+    * Recherche de l'article de la rubrique Phototheque
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 02/02/2017
+    * Since: v1.0
+    */
+    public function getArticle($slug)
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT p
+            FROM AppBundle:Phototheque p
+            WHERE p.slug LIKE :slug
+            AND p.statut = :stat
+        ')
+          ->setParameter('slug', '%'.$slug.'%')
+          ->setParameter('stat', 1)
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+    }
 }

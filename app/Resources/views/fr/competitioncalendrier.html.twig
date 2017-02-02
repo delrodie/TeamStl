@@ -1,0 +1,99 @@
+{% extends 'FOLayout.html.twig' %}
+
+{% block title %}
+  Calendrier des compétitions golf
+{% endblock %}
+
+{% block meta %}
+
+  <meta name="keywords" content="Golf, President Golf Club, trou, 18 trous, green, Yamoussoukro, Cote d'ivoire, Abidjan, copmpetition "  />
+  <meta name="description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population">
+  <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Calendrier des compétitions golf " />
+    <meta property="og:description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population" />
+    <meta property="og:url" content="http://reseau-nzassa.org/competition/calendrier" />
+    <meta property="og:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+    <meta property="og:site_name" content="S.A. TEAM STL" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="{La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population"/>
+    <meta name="twitter:title" content="Calendrier des compétitions golf "/>
+    <meta name="twitter:domain" content="S.A. TEAM STL"/>
+    <meta property="twitter:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+
+{% endblock %}
+
+{% block body %}
+
+
+<!-- colonne principale -->
+     <div class="medium-8 columns">
+         <!-- breadcrumbs -->
+       <nav aria-label="You are here:" role="navigation">
+         <ul class="breadcrumbs">
+           <li><a href="{{ path('homepage') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+           <!--<li><a href="#">Features</a></li>-->
+           <li class="disabled">competition</li>
+           <li>
+             <span class="show-for-sr">Current: </span> Calendrier
+           </li>
+         </ul>
+       </nav>
+       <!-- \breadcrumbs -->
+       <div class="row">
+         <div class="columns content">
+           <div class="row small-up-1 medium-up-3 teamstl-bloc">
+             {% for competition in competitions %}
+              {% if competition.titre %}
+              <div class="columns bloc">
+                 <a href="{{ path('fo_competition', { 'slug': competition.slug })}}">
+                   {% if competition.image %}
+                       <img src="{{ asset('ressources/images/competition/' ~ competition.image.id ~ '.' ~ competition.image.url )}}" alt="{{ competition.titre }}" />
+                   {% else %}
+                       <img src="{{ asset('ressources/images/competition/calendrier.jpg')}}" alt="{{ competition.titre }}" />
+                   {% endif %}
+
+                  <div class="tuile-competition hide-for-small-only">
+                    <div class="titre">
+                      {{ competition.titre }}
+                    </div>
+                    <div class="content">
+
+                      La compétition {{ competition.titre }} se deroulera
+                      {% if competition.journee %}
+                        le {{ competition.datedeb|date('d-m-Y') }}
+                      {% else %}
+                        du {{ competition.datedeb|date('d-m-Y') }} au {{ competition.datefin|date('d-m-Y') }}
+                      {% endif %}
+                    </div>
+                    <div class="icon">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {% else %}
+                  <div class="teamstl-competition-participation">
+                    <a href="#">
+                      <div class="content">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                        Aucune compétition n'est prévue pour les jours à venir.
+                        Entreprises associées votre images aux prochaines rencontres en nous contactant:
+                         <br>00225 07 28 62 47 <br>teamstl.sa@gmail.com
+                      </div>
+                    </a>
+                  </div>
+              {% endif %}
+
+             {% endfor %}
+
+           </div>
+
+         </div>
+       </div>
+     </div>
+     <!-- \colonne principale -->
+
+
+{% endblock %}

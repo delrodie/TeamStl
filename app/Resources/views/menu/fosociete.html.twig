@@ -1,0 +1,3 @@
+{% for societe in societes %}
+  <li><a href="{{ path('fo_societe', { 'slug': societe.slug })}}">{{ societe.rubrique|capitalize }}</a></li>
+{% endfor %}

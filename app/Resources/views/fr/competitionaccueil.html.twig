@@ -1,0 +1,29 @@
+{% for competition in competitions %}
+<div class="columns bloc">
+   <a href="#">
+     {% if competition.image %}
+         <img src="{{ asset('ressources/images/competition/' ~ competition.image.id ~ '.' ~ competition.image.url )}}" alt="{{ competition.titre }}" />
+     {% else %}
+         <img src="{{ asset('ressources/images/competition/calendrier.jpg')}}" alt="{{ competition.titre }}" />
+     {% endif %}
+
+    <div class="tuile-competition hide-for-small-only">
+      <div class="titre">
+        {{ competition.titre }}
+      </div>
+      <div class="content">
+        
+        La compétition {{ competition.titre }} se deroulera
+        {% if competition.journee %}
+          le {{ competition.datedeb|date('d-m-Y') }}
+        {% else %}
+          du {{ competition.datedeb|date('d-m-Y') }} au {{ competition.datefin|date('d-m-Y') }}
+        {% endif %}
+      </div>
+      <div class="icon">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+      </div>
+    </div>
+  </a>
+</div>
+{% endfor %}

@@ -92,7 +92,103 @@ class MenuController extends Controller
       ));
   }
 
-  
+  /**
+  * *******************
+  * MENU DU FRONTOFFICE
+  * *******************
+  */
 
+
+  /**
+   * Menu de la rubrique presentation.
+   *
+   */
+  public function fopresentationAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $presentations = $em->getRepository('AppBundle:Presentation')->getMenu();
+
+      return $this->render('menu/fopresentation.html.twig', array(
+          'presentations' => $presentations,
+      ));
+  }
+
+  /**
+   * Menu de la rubrique presentation.
+   *
+   */
+  public function foinitiationAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $initiations = $em->getRepository('AppBundle:Initiation')->getMenu();
+
+      return $this->render('menu/foinitiation.html.twig', array(
+          'initiations' => $initiations,
+      ));
+  }
+
+  /**
+   * Menu de la rubrique academy.
+   *
+   */
+  public function foacademyAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $academys = $em->getRepository('AppBundle:Academy')->getMenu();
+
+      return $this->render('menu/foacademy.html.twig', array(
+          'academys' => $academys,
+      ));
+  }
+
+  /**
+   * Menu de la rubrique competition.
+   *
+   */
+  public function focompetitionAction()
+  {
+      $em = $this->getDoctrine()->getManager();
+
+      $competitions = $em->getRepository('AppBundle:Competition')->getCompetition();
+
+      return $this->render('menu/focompetition.html.twig', array(
+          'competitions' => $competitions,
+      ));
+  }
+
+    /**
+     * Menu de la rubrique academy.
+     *
+     */
+    public function fosocieteAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $societes = $em->getRepository('AppBundle:Societe')->getMenu();
+
+        return $this->render('menu/fosociete.html.twig', array(
+            'societes' => $societes,
+        ));
+    }
+
+    /**
+     * Menu de la rubrique Event.
+     *
+     */
+    public function foevenementAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $evenements = $em->getRepository('AppBundle:Evenement')->getMenu();
+
+        return $this->render('menu/foevenement.html.twig', array(
+            'evenements' => $evenements,
+        ));
+    }
+
+    
 
 }
