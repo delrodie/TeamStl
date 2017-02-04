@@ -40,4 +40,49 @@ class DefaultController extends Controller
              'competitions' => $competitions,
          ));
      }
+
+     /**
+      * Liste des compétitions.
+      *
+      */
+      public function competitionAction()
+      {
+          $em = $this->getDoctrine()->getManager();
+
+          $competitions = $em->getRepository('AppBundle:Competition')->getCompetition();
+
+          return $this->render('fr/competitionliste.html.twig', array(
+              'competitions' => $competitions,
+          ));
+      }
+
+      /**
+       * Liste des compétitions.
+       *
+       */
+       public function accueilcompetitionAction()
+       {
+           $em = $this->getDoctrine()->getManager();
+
+           $competitions = $em->getRepository('AppBundle:Competition')->getCompetition();
+
+           return $this->render('fr/competitionaccueil.html.twig', array(
+               'competitions' => $competitions,
+           ));
+       }
+
+       /**
+        * Liste des compétitions.
+        *
+        */
+        public function existencecompetitionAction()
+        {
+            $em = $this->getDoctrine()->getManager();
+
+            $competitions = $em->getRepository('AppBundle:Competition')->getCompetition();
+
+            return $this->render('fr/competitionexistence.html.twig', array(
+                'competitions' => $competitions,
+            ));
+        }
 }

@@ -6,13 +6,13 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Phototheque
+ * Videotheque
  *
- * @ORM\Table(name="phototheque")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PhotothequeRepository")
+ * @ORM\Table(name="videotheque")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\VideothequeRepository")
  * @Gedmo\Loggable
  */
-class Phototheque
+class Videotheque
 {
     /**
      * @var int
@@ -90,11 +90,6 @@ class Phototheque
      */
     private $statut;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\ImgPhototheque", cascade={"persist", "remove"})
-     */
-     private $image;
-
 
     /**
      * Get id
@@ -111,7 +106,7 @@ class Phototheque
      *
      * @param string $titre
      *
-     * @return Phototheque
+     * @return Videotheque
      */
     public function setTitre($titre)
     {
@@ -135,7 +130,7 @@ class Phototheque
      *
      * @param string $description
      *
-     * @return Phototheque
+     * @return Videotheque
      */
     public function setDescription($description)
     {
@@ -153,20 +148,13 @@ class Phototheque
     {
         return $this->description;
     }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->image = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Set slug
      *
      * @param string $slug
      *
-     * @return Phototheque
+     * @return Videotheque
      */
     public function setSlug($slug)
     {
@@ -186,11 +174,35 @@ class Phototheque
     }
 
     /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return Videotheque
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
      * Set publiePar
      *
      * @param string $publiePar
      *
-     * @return Phototheque
+     * @return Videotheque
      */
     public function setPubliePar($publiePar)
     {
@@ -214,7 +226,7 @@ class Phototheque
      *
      * @param string $modifiePar
      *
-     * @return Phototheque
+     * @return Videotheque
      */
     public function setModifiePar($modifiePar)
     {
@@ -238,7 +250,7 @@ class Phototheque
      *
      * @param \DateTime $publieLe
      *
-     * @return Phototheque
+     * @return Videotheque
      */
     public function setPublieLe($publieLe)
     {
@@ -262,7 +274,7 @@ class Phototheque
      *
      * @param \DateTime $modifieLe
      *
-     * @return Phototheque
+     * @return Videotheque
      */
     public function setModifieLe($modifieLe)
     {
@@ -286,7 +298,7 @@ class Phototheque
      *
      * @param boolean $statut
      *
-     * @return Phototheque
+     * @return Videotheque
      */
     public function setStatut($statut)
     {
@@ -303,63 +315,5 @@ class Phototheque
     public function getStatut()
     {
         return $this->statut;
-    }
-
-    /**
-     * Add image
-     *
-     * @param \AppBundle\Entity\ImgPhototheque $image
-     *
-     * @return Phototheque
-     */
-    public function addImage(\AppBundle\Entity\ImgPhototheque $image)
-    {
-        $this->image[] = $image;
-
-        return $this;
-    }
-
-    /**
-     * Remove image
-     *
-     * @param \AppBundle\Entity\ImgPhototheque $image
-     */
-    public function removeImage(\AppBundle\Entity\ImgPhototheque $image)
-    {
-        $this->image->removeElement($image);
-    }
-
-    /**
-     * Get image
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    /**
-     * Set url
-     *
-     * @param string $url
-     *
-     * @return Phototheque
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
     }
 }

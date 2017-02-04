@@ -15,13 +15,13 @@
       <meta property="og:title" content="La S.A. Team STL est une équipe de passionnés de golf" />
       <meta property="og:description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population" />
       <meta property="og:url" content="http://reseau-nzassa.org/" />
-      <meta property="og:image" content="http://www.team-stl.com.com/{{ asset('ressources/images/logo.jpg') }}" />
+      <meta property="og:image" content="http://www.team-stl.com.com{{ asset('ressources/images/logo.jpg') }}" />
       <meta property="og:site_name" content="S.A. TEAM STL" />
       <meta name="twitter:card" content="summary"/>
       <meta name="twitter:description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population"/>
       <meta name="twitter:title" content="La S.A. Team STL est une équipe de passionnés de golf"/>
       <meta name="twitter:domain" content="S.A. TEAM STL"/>
-      <meta property="twitter:image" content="http://www.team-stl.com.com/{{ asset('ressources/images/logo.jpg') }}" />
+      <meta property="twitter:image" content="http://www.team-stl.com.com{{ asset('ressources/images/logo.jpg') }}" />
     {% endblock %}
 
     <meta name="revisit" content="1 month" />
@@ -108,29 +108,23 @@
         </div>
         <div class="title-bar-right">
           <ul class="menu dropdown" data-dropdown-menu>
-            <li><a href="index.php">Accueil</a></li>
+            <li><a href="{{ path('homepage')}}">Accueil</a></li>
             <li>
               <a href="#">Presentation</a>
               <ul class="menu text-left">
-                <li><a href="">A propos de nous</a></li>
-                <li><a href="pgc.php">le golf (PGC)</a></li>
-                <li><a href="parcours.php">Le parcours</a></li>
+                {{ render(url('fomenu_presentation')) }}
               </ul>
             </li>
             <li>
               <a href="#">Commencer le golf</a>
               <ul class="menu text-left">
-                <li><a href="">Journée decouverte</a></li>
-                <li><a href="">Pack debutant</a></li>
+                {{ render(url('fomenu_initiation')) }}
               </ul>
             </li>
             <li>
               <a href="projets.php">Golf academy</a>
               <ul class="menu text-left">
-                <li><a href="">Les pros</a></li>
-                <li><a href="">Cours / stages juniors</a></li>
-                <li><a href="">Projet golf pour tous</a></li>
-                <li><a href="">Cours individuels / collectifs</a></li>
+                {{ render(url('fomenu_academy')) }}
               </ul>
             </li>
             <li>
@@ -143,36 +137,32 @@
             <li>
               <a href="#">Competitions</a>
               <ul class="menu text-left">
-                <li><a href="#">Calendrier</a></li>
-                <li><a href="#">Randgold resources</a></li>
-                <li><a href="#">Kenya airways</a></li>
+                <li><a href="{{ path('fo_calendrier_competition') }}">Calendrier</a></li>
+                {{ render(url('fomenu_competition')) }}
               </ul>
             </li>
             <li>
               <a href="#">Sociétés</a>
               <ul class="menu text-left">
-                <li><a href="#">Sponsoring</a></li>
-                <li><a href="#">Initiations au golf</a></li>
-                <li><a href="#">Golf for business</a></li>
+                {{ render(url('fomenu_societe')) }}
               </ul>
             </li>
             <li>
               <a href="#">Event</a>
               <ul class="menu text-left">
-                <li><a href="#">Calendrier</a></li>
-                <li><a href="#">Promo</a></li>
+                <li><a href="{{ path('fo_calendrier_evenement')}}">Calendrier</a></li>
               </ul>
             </li>
             <li>
               <a href="#">Mediatheque</a>
               <ul class="menu text-left">
-                <li><a href="#">Photos</a></li>
-                <li><a href="">Videos</a></li>
+                <li><a href="{{ path('fo_albums_photo') }}">Photos</a></li>
+                <li><a href="{{ path('fo_liste_videos') }}">Videos</a></li>
                 <li><a href="#">Presse</a></li>
               </ul>
             </li>
             <li>
-              <a href="contact.php">Contact</a>
+              <a href="#">Contact</a>
             </li>
           </ul>
         </div>
@@ -200,17 +190,10 @@
                             <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
                             <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
                             <li class="is-active orbit-slide">
-                              <img class="orbit-image" src="{{ asset('ressources/images/competition/belier.jpg')}}" alt="Space">
-                              <figcaption class="orbit-caption">01 Octobre 2016</figcaption>
+                              <img class="orbit-image" src="{{ asset('ressources/images/competition/calendrier.jpg')}}" alt="Space">
+                              <figcaption class="orbit-caption">Calendrier des compétitions</figcaption>
                             </li>
-                            <li class="orbit-slide">
-                              <img class="orbit-image" src="{{ asset('ressources/images/competition/randgold.jpg')}}" alt="Space">
-                              <figcaption class="orbit-caption">29 Octobre 2016</figcaption>
-                            </li>
-                            <li class="orbit-slide">
-                              <img class="orbit-image" src="{{ asset('ressources/images/competition/kenya-airways.jpg')}}" alt="Space">
-                              <figcaption class="orbit-caption">26 Novembre 2016</figcaption>
-                            </li>
+                            {{ render(url('fo_liste_competition')) }}
                           </ul>
                         </div>
                   </div>
@@ -291,10 +274,10 @@
                   <ul>
                     <li><a href="">Membre</a></li>
                     <li><a href="">Devenir membre</a></li>
-                    <li><a href="">Calendrier</a></li>
-                    <li><a href="">Compétitions</a></li>
-                    <li><a href="">Photos</a></li>
-                    <li><a href="">Videos</a></li>
+                    <li><a href="{{ path('fo_calendrier_evenement')}}">Calendrier</a></li>
+                    <li><a href="{{ path('fo_calendrier_competition') }}">Compétitions</a></li>
+                    <li><a href="{{ path('fo_albums_photo') }}">Photos</a></li>
+                    <li><a href="{{ path('fo_liste_videos') }}">Videos</a></li>
                   </ul>
                 </div>
               </div>

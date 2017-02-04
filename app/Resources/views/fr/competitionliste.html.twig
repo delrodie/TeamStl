@@ -1,0 +1,11 @@
+{% for competition in competitions %}
+<li class="orbit-slide">
+  {% if competition.image %}
+      <img class="orbit-image"  src="{{ asset('ressources/images/competition/' ~ competition.image.id ~ '.' ~ competition.image.url )}}" alt="{{ competition.titre }}" />
+  {% else %}
+      <img class="orbit-image"  src="{{ asset('ressources/images/competition/calendrier.jpg')}}" alt="{{ competition.titre }}" />
+  {% endif %}
+
+  <figcaption class="orbit-caption">{{ competition.rubrique }} {{ competition.datedeb|date('d-m-Y')}}</figcaption>
+</li>
+{% endfor %}

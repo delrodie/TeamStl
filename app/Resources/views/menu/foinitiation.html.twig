@@ -1,0 +1,3 @@
+{% for initiation in initiations %}
+  <li><a href="{{ path('fo_initiation', { 'slug': initiation.slug })}}">{{ initiation.rubrique|capitalize }}</a></li>
+{% endfor %}

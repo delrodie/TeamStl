@@ -10,4 +10,60 @@ namespace AppBundle\Repository;
  */
 class SocieteRepository extends \Doctrine\ORM\EntityRepository
 {
+  /**
+    * Requête de recherche du menu de la rubrique presentation
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 01/02/2017
+    * Since: v1.0
+    */
+    public function getMenu()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT s
+            FROM AppBundle:Societe s
+            WHERE s.statut = :stat
+        ')
+          ->setParameter('stat', 1)
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+
+    }
+
+    /**
+    * Recherche de l'article de la rubrique presentation
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 01/02/2017
+    * Since: v1.0
+    */
+    public function getArticle($slug)
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT s
+            FROM AppBundle:Societe s
+            WHERE s.slug LIKE :slug
+            AND s.statut = :stat
+        ')
+          ->setParameter('slug', '%'.$slug.'%')
+          ->setParameter('stat', 1)
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+    }
 }
