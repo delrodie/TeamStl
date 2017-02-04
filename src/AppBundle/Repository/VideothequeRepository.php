@@ -10,4 +10,60 @@ namespace AppBundle\Repository;
  */
 class VideothequeRepository extends \Doctrine\ORM\EntityRepository
 {
+  /**
+    * Requête de recherche des videos actives
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 03/02/2017
+    * Since: v1.0
+    */
+    public function getListevideos()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT v
+            FROM AppBundle:Videotheque v
+            WHERE v.statut = :stat
+        ')
+          ->setParameter('stat', 1)
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+
+    }
+
+    /**
+    * Recherche de l'article de la rubrique Videotheque
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 03/02/2017
+    * Since: v1.0
+    */
+    public function getArticle($slug)
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT v
+            FROM AppBundle:Videotheque v
+            WHERE v.slug LIKE :slug
+            AND v.statut = :stat
+        ')
+          ->setParameter('slug', '%'.$slug.'%')
+          ->setParameter('stat', 1)
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+    }
 }

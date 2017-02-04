@@ -1,0 +1,66 @@
+{% extends 'FOLayout.html.twig' %}
+
+{% block title %}
+  {% for videotheque in videotheques %}
+      {{ videotheque.titre }}
+  {% endfor %}
+{% endblock %}
+
+{% block meta %}
+  {% for videotheque in videotheques %}
+  <meta name="keywords" content="Golf, President Golf Club, trou, 18 trous, green, Yamoussoukro, Cote d'ivoire, Abidjan, video golf"  />
+  <meta name="description" content="{{ videotheque.description }}">
+  <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ videotheque.titre }}" />
+    <meta property="og:description" content="{{ videotheque.description }}" />
+    <meta property="og:url" content="http://reseau-nzassa.org/videotheques/{{ videotheque.slug }}" />
+    <meta property="og:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+    <meta property="og:site_name" content="S.A. TEAM STL" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="{{ videotheque.description }}"/>
+    <meta name="twitter:title" content="{{ videotheque.titre }}"/>
+    <meta name="twitter:domain" content="S.A. TEAM STL"/>
+    <meta property="twitter:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+  {% endfor %}
+{% endblock %}
+
+{% block body %}
+
+{% for videotheque in videotheques %}
+<!-- colonne principale -->
+     <div class="medium-8 columns">
+         <!-- breadcrumbs -->
+       <nav aria-label="You are here:" role="navigation">
+         <ul class="breadcrumbs">
+           <li><a href="{{ path('homepage') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+           <!--<li><a href="#">Features</a></li>-->
+           <li class="disabled">videotheque</li>
+           <li>
+             <span class="show-for-sr">Current: </span> {{ videotheque.titre }}
+           </li>
+         </ul>
+       </nav>
+       <!-- \breadcrumbs -->
+       <div class="row">
+         <div class="columns content">
+           <div class="titre">{{ videotheque.titre }} </div>
+           <div class="columns text-center videos">
+               <div class="flex-video">
+                   <iframe width="560" height="315" src="{{ videotheque.url }}" frameborder="0" allowfullscreen></iframe>
+               </div>
+           </div>
+             <p>
+               {{ videotheque.description|raw }}
+             </p>
+             <div class="text-right" style="font-style:italic; padding-top:50px">
+               <a href="{{ path('fo_liste_videos') }}"><i class="fa fa-home"> Retour a la liste</i></a>
+             </div>
+         </div>
+       </div>
+     </div>
+     <!-- \colonne principale -->
+{% endfor %}
+
+{% endblock %}

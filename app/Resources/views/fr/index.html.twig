@@ -140,8 +140,7 @@
                   <a href="#">Mediatheque</a>
                   <ul class="menu text-left">
                     <li><a href="{{ path('fo_albums_photo') }}">Photos</a></li>
-                    <li><a href="#">Videos</a></li>
-                    <li><a href="#">Presse</a></li>
+                    <li><a href="{{ path('fo_liste_videos') }}">Videos</a></li>
                   </ul>
                 </li>
                 <li>
@@ -317,10 +316,10 @@
                 <ul>
                   <li><a href="">Membre</a></li>
                   <li><a href="">Devenir membre</a></li>
-                  <li><a href="">Calendrier</a></li>
-                  <li><a href="">Compétitions</a></li>
-                  <li><a href="">Photos</a></li>
-                  <li><a href="">Videos</a></li>
+                  <li><a href="{{ path('fo_calendrier_evenement')}}">Calendrier</a></li>
+                  <li><a href="{{ path('fo_calendrier_competition') }}">Compétitions</a></li>
+                  <li><a href="{{ path('fo_albums_photo') }}">Photos</a></li>
+                  <li><a href="{{ path('fo_liste_videos') }}">Videos</a></li>
                 </ul>
               </div>
             </div>

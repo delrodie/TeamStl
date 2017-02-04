@@ -1,7 +1,7 @@
 {% extends 'FOLayout.html.twig' %}
 
 {% block title %}
-  Les albums photos de Team STL
+  Liste des videos
 {% endblock %}
 
 {% block meta %}
@@ -11,14 +11,14 @@
   <meta property="og:locale" content="fr_FR" />
     <meta property="og:locale:alternate" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Calendrier des compétitions golf " />
+    <meta property="og:title" content="Liste des vidéos " />
     <meta property="og:description" content="La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population" />
-    <meta property="og:url" content="http://reseau-nzassa.org/phototheques/listes-des-albums-photos" />
+    <meta property="og:url" content="http://reseau-nzassa.org/videos/liste-des-videos" />
     <meta property="og:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
     <meta property="og:site_name" content="S.A. TEAM STL" />
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:description" content="{La  S.A. Team Sport Tourisme et Loisirs (Team STL) est une équipe de passionnés de golf. Elle vise de ce fait la restauration de l’image de ce site et du golf ivoirien comme sport de qualité et accessible à la population"/>
-    <meta name="twitter:title" content="Calendrier des compétitions golf "/>
+    <meta name="twitter:title" content="Liste des vidéos "/>
     <meta name="twitter:domain" content="S.A. TEAM STL"/>
     <meta property="twitter:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
 
@@ -34,36 +34,29 @@
          <ul class="breadcrumbs">
            <li><a href="{{ path('homepage') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
            <!--<li><a href="#">Features</a></li>-->
-           <li class="disabled">album</li>
+           <li class="disabled">videos</li>
            <li>
-             <span class="show-for-sr">Current: </span> Calendrier
+             <span class="show-for-sr">Current: </span> Liste
            </li>
          </ul>
        </nav>
        <!-- \breadcrumbs -->
        <div class="row">
          <div class="columns content">
-           <div class="row small-up-1 medium-up-3 teamstl-bloc">
-             {% for album in albums %}
-              <div class="columns bloc">
-                 <a href="{{ path('fo_phototheque', { 'slug': album.slug }) }}">
-
-                  <div class="tuile-album hide-for-small-only">
-                    <div class="titre">
-                      <i class="fa fa-folder-open-o"></i> {{ album.titre }}
+             <div class="row small-up-1 medium-up-2 large-up-3">
+           {% for video in videos %}
+                 <!-- Colonne video -->
+                <div class="columns text-center videos">
+                    <div class="flex-video">
+                        <iframe width="560" height="315" src="{{ video.url }}" frameborder="0" allowfullscreen></iframe>
                     </div>
-                    <div class="content">
-                      {{ album.description }}
-                    </div>
-
-                  </div>
-                </a>
-              </div>
-
-             {% endfor %}
-
-           </div>
-
+                    <a href="{{ path('fo_videotheque', { 'slug': video.slug }) }}">
+                      Visualisez la vidéo
+                    </a>
+                </div>
+                <!-- \Colonne video -->
+           {% endfor %}
+            </div>
          </div>
        </div>
      </div>
