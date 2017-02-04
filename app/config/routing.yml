@@ -131,3 +131,13 @@ fo_phototheque:
     path:     /phototheques/{slug}
     defaults: { _controller: "AppBundle:Fo:phototheque" }
     methods:  [GET, POST]
+
+fo_liste_videos:
+    path:     /videotheques/liste-des-videos
+    defaults: { _controller: "AppBundle:Fo:listevideo" }
+    methods:  [GET, POST]
+
+fo_videotheque:
+    path:     /videotheques/{slug}
+    defaults: { _controller: "AppBundle:Fo:videotheque" }
+    methods:  [GET, POST]

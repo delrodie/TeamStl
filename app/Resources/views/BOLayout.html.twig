@@ -176,6 +176,7 @@
                                           <a href="javascript:;"> Médiathèque </a>
                                           <ul class="dropdown-menu">
                                             <li><a href="{{ path('admin_phototheque_index')}}">Photos</a></li>
+                                            <li><a href="{{ path('admin_videotheque_index')}}">Videos</a></li>
                                           </ul>
                                       </li>
                                     </ul>
@@ -245,9 +246,12 @@
                                             <a href="{{ path('admin_evenement_new') }}">
                                             <i class="fa fa-plus"></i> Events </a>
                                         </li>
-                                        <li>
-                                            <a href="{{ path('admin_phototheque_new') }}">
-                                            <i class="fa fa-plus"></i> Mediathèque </a>
+                                        <li class="dropdown more-dropdown-sub">
+                                            <a href="javascript:;"> Médiathèque </a>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="{{ path('admin_phototheque_new')}}">Photos</a></li>
+                                              <li><a href="{{ path('admin_videotheque_new')}}">Videos</a></li>
+                                            </ul>
                                         </li>
                                     </ul>
                                 </li>

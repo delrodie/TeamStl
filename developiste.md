@@ -486,7 +486,7 @@ Ainsi nous avons comme MLD
 
 7°/ **Gestion de la classe Phototheque**
     Creation des classes Phototheque et ImgPhototheque
-    ** - Phototheque(titre, description, slug, publication, modification, statut)
+    ** - Phototheque(titre, description, url, slug, publication, modification, statut)
     ** - [*- php bin/console doctrine:generate:entity AppBundle:Phototheque/ImgPhototheque -*]
 
     Generation CRUD de la classe ImgPhototheque
@@ -497,6 +497,10 @@ Ainsi nous avons comme MLD
     Generation CRUD de la classe Phototheque
     ** - [*- php bin/console doctrine:generate:crud AppBundle:Phototheque -*]
 
+8°/ **Gestion de la classe Videotheque**
+    Creation de la classe Videotheque
+    ** - Videotheque(titre, description, url, slug, publication, modification, statut)
+    ** - [*- php bin/console doctrine:generate:enitity AppBundle:Videotheque -*]
 
 /**********
  *** Integration du frontoffice du site
@@ -506,6 +510,6 @@ Ainsi nous avons comme MLD
 
 1°/ Layout du front office
     - Integration des ressources foundation dans le repertoire web/ressources
-    - Creation du fichier FOLayout.html.twig 
+    - Creation du fichier FOLayout.html.twig
 
 2

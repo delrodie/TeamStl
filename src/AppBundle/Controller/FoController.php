@@ -153,4 +153,34 @@ class FoController extends Controller
            'phototheques' => $phototheques,
        ));
    }
+
+     /**
+     * Recherche des videos .
+     *
+     */
+    public function listevideoAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $videos = $em->getRepository('AppBundle:Videotheque')->getListevideos();
+
+        return $this->render('fr/videoliste.html.twig', array(
+            'videos' => $videos,
+        ));
+    }
+
+      /**
+      * Recherche des photos .
+      *
+      */
+     public function videothequeAction($slug)
+     {
+         $em = $this->getDoctrine()->getManager();
+
+         $videotheques = $em->getRepository('AppBundle:Videotheque')->getArticle($slug);
+
+         return $this->render('fr/videotheque.html.twig', array(
+             'videotheques' => $videotheques,
+         ));
+     }
 }
