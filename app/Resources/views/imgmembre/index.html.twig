@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Imgmembres list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Url</th>
+                <th>Alt</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for imgMembre in imgMembres %}
+            <tr>
+                <td><a href="{{ path('admin_imgmembre_show', { 'id': imgMembre.id }) }}">{{ imgMembre.id }}</a></td>
+                <td>{{ imgMembre.url }}</td>
+                <td>{{ imgMembre.alt }}</td>
+                <td>{% if imgMembre.statut %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_imgmembre_show', { 'id': imgMembre.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_imgmembre_edit', { 'id': imgMembre.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_imgmembre_new') }}">Create a new imgMembre</a>
+        </li>
+    </ul>
+{% endblock %}
