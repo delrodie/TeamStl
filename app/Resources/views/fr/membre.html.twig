@@ -50,7 +50,7 @@
                {{ membre.contenu|raw }}
              </p>
            {% if membre.image %}
-               <img src="{{ asset('ressources/images/membre/' ~ membre.image.id ~ '.' ~ membre.image.url )}}" alt="{{ membre.titre }}" class="thumbnail" />
+               <img src="{{ asset('ressources/images/membre/' ~ membre.image.id ~ '.' ~ membre.image.url )}}" alt="{{ membre.titre }}" class="thumbnail" width="100" />
            {% else %}
                <img src="{{ asset('ressources/images/logo.jpg')}}" alt="{{ membre.titre }}" class="thumbnail" />
            {% endif %}

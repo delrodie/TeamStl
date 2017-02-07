@@ -47,7 +47,7 @@
          <div class="columns content">
            <div class="titre">{{ academy.titre }} </div>
            {% if academy.image %}
-               <img src="{{ asset('ressources/images/academy/' ~ academy.image.id ~ '.' ~ academy.image.url )}}" alt="{{ academy.titre }}" class="thumbnail" />
+               <img src="{{ asset('ressources/images/academy/' ~ academy.image.id ~ '.' ~ academy.image.url )}}" alt="{{ academy.titre }}" class="thumbnail" width="100" />
            {% else %}
                <img src="{{ asset('ressources/images/logo.jpg')}}" alt="{{ academy.titre }}" class="thumbnail" />
            {% endif %}

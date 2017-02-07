@@ -47,7 +47,7 @@
          <div class="columns content">
            <div class="titre">{{ competition.titre }} </div>
            {% if competition.image %}
-               <img src="{{ asset('ressources/images/competition/' ~ competition.image.id ~ '.' ~ competition.image.url )}}" alt="{{ competition.titre }}" class="thumbnail" />
+               <img src="{{ asset('ressources/images/competition/' ~ competition.image.id ~ '.' ~ competition.image.url )}}" alt="{{ competition.titre }}" class="thumbnail"  width="150"/>
            {% else %}
                <img src="{{ asset('ressources/images/logo.jpg')}}" alt="{{ competition.titre }}" class="thumbnail" />
            {% endif %}
