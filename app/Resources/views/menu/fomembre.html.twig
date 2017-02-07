@@ -1,0 +1,3 @@
+{% for membre in membres %}
+  <li><a href="{{ path('fo_membre', { 'slug': membre.slug })}}">{{ membre.rubrique|capitalize }}</a></li>
+{% endfor %}
