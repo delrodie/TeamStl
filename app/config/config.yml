@@ -95,11 +95,11 @@ fos_user:
     group:
         group_class: AppBundle\Entity\Group
 
-bazinga_faker:
-    orm: doctrine
-    locale: fr_FR
-    entities:
-        AppBundle\Entity\Rubrique:
-            number: 25
-        AppBundle\Entity\Article:
-            number: 15
+#bazinga_faker:
+#    orm: doctrine
+#    locale: fr_FR
+#    entities:
+#        AppBundle\Entity\Rubrique:
+#            number: 25
+#        AppBundle\Entity\Article:
+#            number: 15
