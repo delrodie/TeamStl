@@ -10,4 +10,60 @@ namespace AppBundle\Repository;
  */
 class MembreRepository extends \Doctrine\ORM\EntityRepository
 {
+  /**
+    * Requête de recherche du menu de la rubrique membre
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 071/02/2017
+    * Since: v1.0
+    */
+    public function getMenu()
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT m
+            FROM AppBundle:Membre m
+            WHERE m.statut = :stat
+        ')
+          ->setParameter('stat', 1)
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+
+    }
+
+    /**
+    * Recherche de l'article de la rubrique membre
+    *
+    * Author: Delrodie AMOIKON
+    * Date: 07/02/2017
+    * Since: v1.0
+    */
+    public function getArticle($slug)
+    {
+        $em = $this->getEntityManager();
+        $qb = $em->createQuery('
+            SELECT m
+            FROM AppBundle:Membre m
+            WHERE m.slug LIKE :slug
+            AND m.statut = :stat
+        ')
+          ->setParameter('slug', '%'.$slug.'%')
+          ->setParameter('stat', 1)
+        ;
+        try {
+            $result = $qb->getResult();
+
+            return $result;
+
+        } catch (NoResultException $e) {
+            return $e;
+        }
+    }
 }

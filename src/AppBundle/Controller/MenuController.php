@@ -189,6 +189,19 @@ class MenuController extends Controller
         ));
     }
 
-    
+    /**
+     * Menu de la rubrique Event.
+     *
+     */
+    public function fomembreAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $membres = $em->getRepository('AppBundle:Membre')->getMenu();
+
+        return $this->render('menu/fomembre.html.twig', array(
+            'membres' => $membres,
+        ));
+    }
 
 }

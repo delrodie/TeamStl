@@ -71,6 +71,11 @@ fomenu_phototheque:
     defaults: { _controller: "AppBundle:Menu:fophototheque" }
     methods:  [GET, POST]
 
+fomenu_membre:
+    path:     /menu_membre
+    defaults: { _controller: "AppBundle:Menu:fomembre" }
+    methods:  [GET, POST]
+
 # Article des entites
 fo_presentation:
     path:     /presentation/{slug}
@@ -140,4 +145,9 @@ fo_liste_videos:
 fo_videotheque:
     path:     /videotheques/{slug}
     defaults: { _controller: "AppBundle:Fo:videotheque" }
+    methods:  [GET, POST]
+
+fo_membre:
+    path:     /membres/{slug}
+    defaults: { _controller: "AppBundle:Fo:membre" }
     methods:  [GET, POST]

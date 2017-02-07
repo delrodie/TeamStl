@@ -1,0 +1,64 @@
+{% extends 'FOLayout.html.twig' %}
+
+{% block title %}
+  {% for membre in membres %}
+      {{ membre.titre }}
+  {% endfor %}
+{% endblock %}
+
+{% block meta %}
+  {% for membre in membres %}
+  <meta name="keywords" content="{{ membre.tags }}"  />
+  <meta name="description" content="{{ membre.resume }}">
+  <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{ membre.titre }}" />
+    <meta property="og:description" content="{{ membre.resume }}" />
+    <meta property="og:url" content="http://reseau-nzassa.org/membre/{{ membre.slug }}" />
+    <meta property="og:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+    <meta property="og:site_name" content="S.A. TEAM STL" />
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:description" content="{{ membre.resume }}"/>
+    <meta name="twitter:title" content="{{ membre.titre }}"/>
+    <meta name="twitter:domain" content="S.A. TEAM STL"/>
+    <meta property="twitter:image" content="http://www.team-stl.com{{ asset('ressources/images/logo.jpg') }}" />
+  {% endfor %}
+{% endblock %}
+
+{% block body %}
+
+{% for membre in membres %}
+<!-- colonne principale -->
+     <div class="medium-8 columns">
+         <!-- breadcrumbs -->
+       <nav aria-label="You are here:" role="navigation">
+         <ul class="breadcrumbs">
+           <li><a href="{{ path('homepage') }}"><i class="fa fa-home fa-lg" aria-hidden="true"></i></a></li>
+           <!--<li><a href="#">Features</a></li>-->
+           <li class="disabled">membre</li>
+           <li>
+             <span class="show-for-sr">Current: </span> {{ membre.rubrique }}
+           </li>
+         </ul>
+       </nav>
+       <!-- \breadcrumbs -->
+       <div class="row">
+         <div class="columns content">
+           <div class="titre">{{ membre.titre }} </div>
+             <p>
+               {{ membre.contenu|raw }}
+             </p>
+           {% if membre.image %}
+               <img src="{{ asset('ressources/images/membre/' ~ membre.image.id ~ '.' ~ membre.image.url )}}" alt="{{ membre.titre }}" class="thumbnail" />
+           {% else %}
+               <img src="{{ asset('ressources/images/logo.jpg')}}" alt="{{ membre.titre }}" class="thumbnail" />
+           {% endif %}
+
+         </div>
+       </div>
+     </div>
+     <!-- \colonne principale -->
+{% endfor %}
+
+{% endblock %}

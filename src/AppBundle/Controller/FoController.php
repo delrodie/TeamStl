@@ -183,4 +183,19 @@ class FoController extends Controller
              'videotheques' => $videotheques,
          ));
      }
+
+       /**
+       * Recherche des membres .
+       *
+       */
+      public function membreAction($slug)
+      {
+          $em = $this->getDoctrine()->getManager();
+
+          $membres = $em->getRepository('AppBundle:Membre')->getArticle($slug);
+
+          return $this->render('fr/membre.html.twig', array(
+              'membres' => $membres,
+          ));
+      }
 }
